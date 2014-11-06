@@ -1,4 +1,4 @@
-### HEAD
+### 0.2.0 (November 6, 2014)
 
 * Make `update_site_branch.sh` more generic
   [[b5ecd31](https://github.com/h5bp-bot/scripts/commit/b5ecd3196e43001719461ad2a4f945972d789f2f)].
