@@ -48,24 +48,26 @@ print_success() {
 remove_unneeded_files() {
 
     # Remove unneeded files and move the content from within
-    # the `dist/` directory in the root of the project
+    # the distribution/build directory in the root of the project
 
     find . -maxdepth 1 \
             ! -name "." \
             ! -name ".travis.yml" `# It is important that this file remains,` \
                                   `# otherwise Travis will try to run the` \
                                   `# 'npm test' for the server content and fail` \
-            ! -name "dist" \
+            ! -name "$1" \
             -exec rm -rf {} \; \
-        && cp -r dist/{.??*,*} . \
-        && rm -rf dist/
+        && shopt -s dotglob \
+        && cp -r "$1"/* . \
+        && shopt -u dotglob \
+        && rm -rf "$1"/
     print_result $? "Remove unneded content"
 
 }
 
 update_content() {
     npm -q install > /dev/null \
-        && grunt > /dev/null
+        && npm run build > /dev/null
     print_result $? "Update content"
 }
 
@@ -81,13 +83,14 @@ main() {
         repository_url="$(get_repository_url)"
 
         update_content
-        remove_unneeded_files
-        commit_and_push_changes "$1" "$2"
+        remove_unneeded_files "$1"
+        commit_and_push_changes "$2" "$3"
 
     fi
 
 }
 
-main "$1" "$2"
-#     │    └─ commit message
-#     └─ branch name
+main "$1" "$2" "$3"
+#      │    │    └─ commit message
+#      │    └─ branch name
+#      └─ distribution/build directory name
