@@ -1,3 +1,7 @@
+### HEAD
+
+* Make `update_site_branch.sh` remove the `.travis.yml` file.
+
 ### 0.2.2 (November 7, 2014)
 
 * Use better output message in `commit_build_changes.sh`

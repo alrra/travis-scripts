@@ -6,8 +6,8 @@ declare repository_url=""
 
 commit_and_push_changes() {
 
-    # Commit and push changes upstream, overwriting
-    # the content from the branch intended for the server
+    # Commit and push changes upstream, and
+    # overwrite the content from the specified branch
 
     git config --global user.email ${GH_USER_EMAIL} \
         && git config --global user.name ${GH_USER_NAME} \
@@ -46,14 +46,11 @@ print_success() {
 
 remove_unneeded_files() {
 
-    # Remove unneeded files and move the content from within
-    # the distribution/build directory in the root of the project
+    # Remove unneeded files and move the content from
+    # within the specified directory in the root of the project
 
     find . -maxdepth 1 \
             ! -name "." \
-            ! -name ".travis.yml" `# It is important that this file remains,` \
-                                  `# otherwise Travis will try to run the` \
-                                  `# 'npm test' for the server content and fail` \
             ! -name "$1" \
             -exec rm -rf {} \; \
         && shopt -s dotglob \
@@ -73,7 +70,7 @@ update_content() {
 main() {
 
     # Only execute the following if the
-    # changes were made in the `master` branch
+    # commit was made to the `master` branch
 
     if [ "$TRAVIS_BRANCH" == "master" ]; then
 
