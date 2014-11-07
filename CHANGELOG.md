@@ -1,6 +1,7 @@
 ### HEAD
 
-* Make `update_site_branch.sh` remove the `.travis.yml` file.
+* Make `update_site_branch.sh` remove the `.travis.yml` file
+  [[fb54392](https://github.com/h5bp-bot/scripts/commit/fb54392f89d99a7dcc4bf268580cf28bbc59fcb9)].
 
 ### 0.2.2 (November 7, 2014)
 
