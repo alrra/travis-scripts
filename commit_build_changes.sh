@@ -58,7 +58,7 @@ main() {
         print_result $? "Update content"
 
         commit_and_push_changes "$1" &> /dev/null
-        print_result $? "Commit and push changes"
+        print_result $? "Commit and push changes (if necessary)"
 
     fi
 
