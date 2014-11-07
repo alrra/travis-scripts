@@ -1,4 +1,4 @@
-### HEAD
+### 0.2.2 (November 7, 2014)
 
 * Use better output message in `commit_build_changes.sh`
   [[26dcf01](https://github.com/h5bp-bot/scripts/commit/26dcf013a24e6a99e8d057939915e98d04f70ffe)].
