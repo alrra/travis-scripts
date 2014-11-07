@@ -1,4 +1,4 @@
-### HEAD
+### 0.2.1 (November 7, 2014)
 
 * Make scripts only output the strictly necessary content
   [[caaea4f](https://github.com/h5bp-bot/scripts/commit/caaea4f09687a906fb99b48a4b46e48ec00632c6)].
