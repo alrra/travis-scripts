@@ -11,12 +11,11 @@ commit_and_push_changes() {
 
     git config --global user.email ${GH_USER_EMAIL} \
         && git config --global user.name ${GH_USER_NAME} \
-        && git init > /dev/null \
+        && git init \
         && git add -A \
-        && git commit --message "$2" > /dev/null \
-        && git checkout -b "$1" 2> /dev/null \
+        && git commit --message "$2" \
+        && git checkout -b "$1" \
         && git push --force --quiet "$repository_url" "$1"
-    print_result $? "Commit and push changes"
 
 }
 
@@ -60,15 +59,13 @@ remove_unneeded_files() {
         && shopt -s dotglob \
         && cp -r "$1"/* . \
         && shopt -u dotglob \
-        && rm -rf "$1"/
-    print_result $? "Remove unneded content"
+        && rm -rf "$1"
 
 }
 
 update_content() {
-    npm -q install > /dev/null \
-        && npm run build > /dev/null
-    print_result $? "Update content"
+    npm install \
+        && npm run build
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -82,9 +79,14 @@ main() {
 
         repository_url="$(get_repository_url)"
 
-        update_content
-        remove_unneeded_files "$1"
-        commit_and_push_changes "$2" "$3"
+        update_content &> /dev/null
+        print_result $? "Update content"
+
+        remove_unneeded_files "$1" &> /dev/null
+        print_result $? "Remove unneded content"
+
+        commit_and_push_changes "$2" "$3" &> /dev/null
+        print_result $? "Commit and push changes"
 
     fi
 

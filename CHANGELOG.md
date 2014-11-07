@@ -1,3 +1,7 @@
+### HEAD
+
+* Make scripts only output the strictly necessary content.
+
 ### 0.2.0 (November 6, 2014)
 
 * Make `update_site_branch.sh` more generic

@@ -8,11 +8,10 @@ commit_and_push_changes() {
     if [ "$(git status --porcelain)" != "" ]; then
         git config --global user.email ${GH_USER_EMAIL} \
             && git config --global user.name ${GH_USER_NAME} \
-            && git checkout master &> /dev/null \
+            && git checkout master \
             && git add -A \
-            && git commit --message "$1" > /dev/null \
-            && git push --quiet "$(get_repository_url)" master > /dev/null
-        print_result $? "Commit and push changes"
+            && git commit --message "$1" \
+            && git push --quiet "$(get_repository_url)" master
     fi
 
 }
@@ -44,7 +43,6 @@ print_success() {
 
 update_content() {
     npm run build
-    print_result $? "Update content"
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -55,8 +53,13 @@ main() {
     # changes were made in the `master` branch
 
     if [ "$TRAVIS_BRANCH" == "master" ]; then
-        update_content
-        commit_and_push_changes "$1"
+
+        update_content &> /dev/null
+        print_result $? "Update content"
+
+        commit_and_push_changes "$1" &> /dev/null
+        print_result $? "Commit and push changes"
+
     fi
 
 }
