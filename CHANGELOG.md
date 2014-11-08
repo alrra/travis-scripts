@@ -1,3 +1,7 @@
+### HEAD
+
+* Make scripts check if the pull request is targeting the `master` branch.
+
 ### 0.3.0 (November 8, 2014)
 
 * Make `update_site_branch.sh` remove the `.travis.yml` file

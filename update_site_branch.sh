@@ -72,7 +72,8 @@ main() {
     # Only execute the following if the
     # commit was made to the `master` branch
 
-    if [ "$TRAVIS_BRANCH" == "master" ]; then
+    if [ "$TRAVIS_BRANCH" == "master" ] && \
+       [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
         repository_url="$(get_repository_url)"
 

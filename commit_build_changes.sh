@@ -52,7 +52,8 @@ main() {
     # Only execute the following if the
     # changes were made in the `master` branch
 
-    if [ "$TRAVIS_BRANCH" == "master" ]; then
+    if [ "$TRAVIS_BRANCH" == "master" ] && \
+       [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
         update_content &> /dev/null
         print_result $? "Update content"
