@@ -1,4 +1,4 @@
-### HEAD
+### 0.4.0 (November 8, 2014)
 
 * Make scripts check if the pull request is targeting the `master` branch
   [[f41f5ab](https://github.com/h5bp-bot/scripts/commit/f41f5abe982971342fa9b1de6fee4cdc58a28b7d)].
