@@ -1,3 +1,7 @@
+### HEAD
+
+* Allow users to specify the default branch name.
+
 ### 0.4.0 (November 8, 2014)
 
 * Make scripts check if the pull request is targeting the `master` branch
