@@ -1,6 +1,7 @@
 ### HEAD
 
-* Allow users to specify the default branch name.
+* Allow users to specify the default branch name
+  [[14ce425](https://github.com/h5bp-bot/scripts/commit/14ce42539205135389a7ea555f4a624a9a505878)].
 
 ### 0.4.0 (November 8, 2014)
 
