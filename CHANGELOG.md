@@ -1,4 +1,4 @@
-### HEAD
+### 0.5.1 (December 3, 2014)
 
 * Fix typo in `update_site_branch.sh`
   [[#33](https://github.com/h5bp/server-configs-apache/issues/33)].
