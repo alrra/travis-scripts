@@ -1,3 +1,8 @@
+### HEAD
+
+* Fix typo in `update_site_branch.sh`
+  [[#33](https://github.com/h5bp/server-configs-apache/issues/33)].
+
 ### 0.5.0 (November 29, 2014)
 
 * Allow users to specify the default branch name
