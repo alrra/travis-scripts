@@ -168,7 +168,7 @@ main() {
         print_result $? "Update content"
 
         remove_unneeded_files "$directory" &> /dev/null
-        print_result $? "Remove unneded content"
+        print_result $? "Remove unneeded content"
 
         commit_and_push_changes "$distributionBranch" "$commitMessage" &> /dev/null
         print_result $? "Commit and push changes"
