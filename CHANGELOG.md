@@ -1,4 +1,4 @@
-### HEAD
+### 0.6.0 (December 8, 2014)
 
 * Allow users to specify the commands that will be executed
   [[#3](https://github.com/h5bp-bot/scripts/issues/3)].
