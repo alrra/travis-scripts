@@ -19,6 +19,10 @@ commit_and_push_changes() {
 
 }
 
+execute() {
+    eval ${1}
+}
+
 get_repository_url() {
     printf "https://${GH_TOKEN}@$(git config --get remote.origin.url \
         | sed 's/git:\/\///g')"
@@ -33,6 +37,10 @@ print_help_message() {
     printf "\n"
     printf "OPTIONS:"
     printf "\n"
+    printf "\n"
+    printf " -c, --commands <commands>\n"
+    printf "\n"
+    printf "     Specifies the commands that will be executed before everything else in order to update the content (default: 'npm install && npm run build')\n"
     printf "\n"
     printf " -d, --build-directory <directory>\n"
     printf "\n"
@@ -83,15 +91,11 @@ remove_unneeded_files() {
 
 }
 
-update_content() {
-    npm install \
-        && npm run build
-}
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
 
+    local commands="npm install && npm run build"
     local commitMessage="Hey server, this content is for you! [skip ci]"
     local directory="dist"
     local distributionBranch="gh-pages"
@@ -103,6 +107,17 @@ main() {
             -h|--help)
                 print_help_message
                 exit
+            ;;
+
+            -c|--commands)
+                if [ "$2" ]; then
+                    commands="$2"
+                    shift 2
+                    continue
+                else
+                    echo 'ERROR: A non-empty "-c/--commands <commands>" argument needs to be specified' >&2
+                    exit 1
+                fi
             ;;
 
             -d|--directory)
@@ -164,7 +179,7 @@ main() {
 
         repository_url="$(get_repository_url)"
 
-        update_content &> /dev/null
+        execute "$commands" &> /dev/null
         print_result $? "Update content"
 
         remove_unneeded_files "$directory" &> /dev/null

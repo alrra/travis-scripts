@@ -1,12 +1,17 @@
+### HEAD
+
+* Allow users to specify the commands that will be executed
+  [[#3](https://github.com/h5bp-bot/scripts/issues/3)].
+
 ### 0.5.1 (December 3, 2014)
 
 * Fix typo in `update_site_branch.sh`
-  [[#33](https://github.com/h5bp/server-configs-apache/issues/33)].
+  [[#2](https://github.com/h5bp-bot/scripts/issues/2)].
 
 ### 0.5.0 (November 29, 2014)
 
 * Allow users to specify the default branch name
-  [[14ce425](https://github.com/h5bp-bot/scripts/commit/14ce42539205135389a7ea555f4a624a9a505878)].
+  [[#1](https://github.com/h5bp-bot/scripts/issues/1)].
 
 ### 0.4.0 (November 8, 2014)
 

@@ -16,6 +16,10 @@ commit_and_push_changes() {
 
 }
 
+execute() {
+    eval ${1}
+}
+
 get_repository_url() {
     printf "https://${GH_TOKEN}@$(git config --get remote.origin.url \
         | sed 's/git:\/\///g')"
@@ -33,7 +37,11 @@ print_help_message() {
     printf "\n"
     printf " -b, --branch <branch_name>\n"
     printf "\n"
-    printf "     Specifies the name of the branch for which the build changes will be committed (default: 'master')\n"
+    printf "     Specifies the commands that will be executed before everything else in order to update the content (default: 'npm install && npm run build')\n"
+    printf "\n"
+    printf " -c, --commands <commands>\n"
+    printf "\n"
+    printf "     Specifies the commands that will be executed before everything else (default: 'npm install && npm run build')\n"
     printf "\n"
     printf " -m, --commit-message <message>\n"
     printf "\n"
@@ -56,16 +64,13 @@ print_success() {
     printf "\e[0;32m [✔] $1\e[0m\n"
 }
 
-update_content() {
-    npm run build
-}
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
 
-    local commitMessage="Update content [skip ci]"
     local branch="master"
+    local commands="npm install && npm run build"
+    local commitMessage="Update content [skip ci]"
 
     while :; do
         case $1 in
@@ -82,6 +87,17 @@ main() {
                     continue
                 else
                     echo 'ERROR: A non-empty "-b/--branch <branch_name>" argument needs to be specified' >&2
+                    exit 1
+                fi
+            ;;
+
+            -c|--commands)
+                if [ "$2" ]; then
+                    commands="$2"
+                    shift 2
+                    continue
+                else
+                    echo 'ERROR: A non-empty "-c/--commands <commands>" argument needs to be specified' >&2
                     exit 1
                 fi
             ;;
@@ -110,7 +126,7 @@ main() {
     if [ "$TRAVIS_BRANCH" == "$branch" ] && \
        [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
-        update_content &> /dev/null
+        execute "$commands" &> /dev/null
         print_result $? "Update content"
 
         commit_and_push_changes "$branch" "$commitMessage" &> /dev/null
