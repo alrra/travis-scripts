@@ -1,3 +1,8 @@
+### HEAD
+
+* Fix wrong option name in the help message from `update_site_branch.sh`
+  [[#4](https://github.com/h5bp-bot/scripts/issues/4)].
+
 ### 0.6.0 (December 8, 2014)
 
 * Allow users to specify the commands that will be executed

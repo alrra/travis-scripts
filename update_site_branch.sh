@@ -42,7 +42,7 @@ print_help_message() {
     printf "\n"
     printf "     Specifies the commands that will be executed before everything else in order to update the content (default: 'npm install && npm run build')\n"
     printf "\n"
-    printf " -d, --build-directory <directory>\n"
+    printf " -d, --directory <directory>\n"
     printf "\n"
     printf "     Specifies the name of the distribution/build directory (default: 'dist')\n"
     printf "\n"
