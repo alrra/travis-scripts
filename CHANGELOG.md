@@ -1,4 +1,4 @@
-### HEAD
+### 0.6.1 (December 10, 2014)
 
 * Fix wrong option name in the help message from `update_site_branch.sh`
   [[#4](https://github.com/h5bp-bot/scripts/issues/4)].
