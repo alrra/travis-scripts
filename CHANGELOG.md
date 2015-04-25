@@ -1,3 +1,7 @@
+### HEAD
+
+* Rename script files to have more generic names.
+
 ### 0.6.1 (December 10, 2014)
 
 * Fix wrong option name in the help message from `update_site_branch.sh`
