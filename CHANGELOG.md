@@ -1,5 +1,6 @@
 ### HEAD
 
+* Move scripts into `bin/`.
 * Rename script files to have more generic names.
 
 ### 0.6.1 (December 10, 2014)
