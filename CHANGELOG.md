@@ -1,7 +1,9 @@
 ### HEAD
 
-* Move scripts into `bin/`.
-* Rename script files to have more generic names.
+* Move scripts into `bin/`
+  [[727433c](https://github.com/h5bp-bot/scripts/commit/727433c628f25fdda094bc31b655aa889fd7079a)].
+* Rename script files to have more generic names
+  [[69847ad](https://github.com/h5bp-bot/scripts/commit/69847ada77dd76a1bf4e00c6bd5e594f65e80b0b)].
 
 ### 0.6.1 (December 10, 2014)
 
