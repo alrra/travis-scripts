@@ -64,6 +64,18 @@ print_success() {
     printf "\e[0;32m [✔] $1\e[0m\n"
 }
 
+runTravisAfterAll() {
+
+    command -v "$(npm bin 2> /dev/null)/travis-after-all" &> /dev/null
+
+    if [ $? -eq 0 ]; then
+        $(npm bin)/travis-after-all
+    else
+        curl -sSL https://raw.githubusercontent.com/alrra/travis-after-all/0.1.2/lib/travis-after-all.js | node
+    fi
+
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
@@ -125,6 +137,11 @@ main() {
 
     if [ "$TRAVIS_BRANCH" == "$branch" ] && \
        [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+
+        runTravisAfterAll
+        [ $? -ne 0 ] && exit 0
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         execute "$commands" &> /dev/null
         print_result $? "Update content"

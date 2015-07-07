@@ -1,0 +1,25 @@
+{
+  "bin": {
+    "commit-changes": "bin/commit-changes.sh",
+    "update-branch": "bin/update-branch.sh"
+  },
+  "bugs": "https://github.com/alrra/travis-scripts/issues",
+  "description": "...",
+  "devDependencies": {
+    "travis-after-all": "^0.1.2"
+  },
+  "homepage": "https://github.com/alrra/travis-scripts#readme",
+  "keywords": [
+    "travis",
+    "travis-ci",
+    "travis-scripts"
+  ],
+  "license": "MIT",
+  "name": "travis-scripts",
+  "repository": "alrra/travis-scripts",
+  "scripts": {
+    "test": "exit 0;"
+  },
+  "version": "0.6.1",
+  "private": true
+}

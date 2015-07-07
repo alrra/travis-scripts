@@ -91,6 +91,18 @@ remove_unneeded_files() {
 
 }
 
+runTravisAfterAll() {
+
+    command -v "$(npm bin 2> /dev/null)/travis-after-all" &> /dev/null
+
+    if [ $? -eq 0 ]; then
+        $(npm bin)/travis-after-all
+    else
+        curl -sSL https://raw.githubusercontent.com/alrra/travis-after-all/0.1.2/lib/travis-after-all.js | node
+    fi
+
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
@@ -176,6 +188,11 @@ main() {
 
     if [ "$TRAVIS_BRANCH" == "$sourceBranch" ] && \
        [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+
+        runTravisAfterAll
+        [ $? -ne 0 ] && exit 0
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         repository_url="$(get_repository_url)"
 

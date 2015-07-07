@@ -1,5 +1,6 @@
 ### HEAD
 
+* Make scripts use `travis-after-all` internally.
 * Move scripts into `bin/`
   [[727433c](https://github.com/h5bp-bot/scripts/commit/727433c628f25fdda094bc31b655aa889fd7079a)].
 * Rename script files to have more generic names
