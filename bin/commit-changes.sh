@@ -11,7 +11,7 @@ commit_and_push_changes() {
             && git checkout "$1" \
             && git add -A \
             && git commit --message "$2" \
-            && git push "$(get_repository_url)" master
+            && git push "$(get_repository_url)" "$1"
     fi
 
 }

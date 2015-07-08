@@ -1,6 +1,7 @@
 ### HEAD
 
-* Make scripts use `travis-after-all` internally.
+* Make `commit-changes.sh` push to the specified branch.
+* Make scripts use `travis-after-all`.
 * Move scripts into `bin/`
   [[727433c](https://github.com/h5bp-bot/scripts/commit/727433c628f25fdda094bc31b655aa889fd7079a)].
 * Rename script files to have more generic names
