@@ -80,14 +80,14 @@ remove_unneeded_files() {
     # Remove unneeded files and move the content from
     # within the specified directory in the root of the project
 
-    find . -maxdepth 1 \
-            ! -name "." \
-            ! -name "$1" \
-            -exec rm -rf {} \; \
+    local tmpDir="$(mktemp -u /tmp/XXXXX)"
+
+    [ -d "$1" ] \
+        && cp -r "$1" "$tmpDir" \
+        && find . -delete \
         && shopt -s dotglob \
-        && cp -r "$1"/* . \
+        && cp -r "$tmpDir"/* . \
         && shopt -u dotglob \
-        && rm -rf "$1"
 
 }
 

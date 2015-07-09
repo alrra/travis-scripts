@@ -1,5 +1,7 @@
 ### HEAD
 
+* Make `update-branch.sh` allow even a non-root directory
+  to be specified.
 * Make `commit-changes.sh` push to the specified branch.
 * Make scripts use `travis-after-all`.
 * Move scripts into `bin/`
