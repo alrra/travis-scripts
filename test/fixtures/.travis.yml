@@ -1,0 +1,37 @@
+# For more information about the configurations used
+# in this file, please see the Travis CI documentation:
+# http://docs.travis-ci.com
+
+after_script:
+  - |
+
+      # Make the scripts available
+      npm link > /dev/null
+      [ $? -ne 0 ] && exit 1
+
+      # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+      commit-changes --branch "{{TEST_BRANCH}}" \
+                     --commands "npm run build" \
+                     --commit-message "Update content [skip ci]";
+
+      printf "\n";
+
+      # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+      update-branch  --commands "npm run build" \
+                     --commit-message "Update branch content [skip ci]" \
+                     --directory "test/fixtures/test" \
+                     --distribution-branch "{{TEST_DIST_BRANCH}}" \
+                     --source-branch "{{TEST_BRANCH}}";
+
+env:
+  global:
+    - secure: "{{SECURE_KEY}}"
+
+language: node_js
+
+node_js:
+  - "0.10"
+  - "0.12"
+  - "io.js"

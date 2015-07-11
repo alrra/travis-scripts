@@ -1,0 +1,56 @@
+# For more information about the configurations used
+# in this file, please see the Travis CI documentation:
+# http://docs.travis-ci.com
+
+after_script:
+  - |
+
+      # Since:
+      #
+      #  1) pull requests sent from forked repositories don't
+      #     have access to the secure environment variables from
+      #     this repository
+      #
+      #     http://docs.travis-ci.com/user/pull-requests/
+      #
+      #  2) there is no fully secure way to automatically import
+      #     code from a pull request
+      #
+      #  the code from a pull request cannot actually be fully
+      #  tested, so might as well just run the scripts and ensure
+      #  the parts that don't require authentication work
+
+      if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+
+
+        # Make scripts available
+
+        npm link > /dev/null
+        [ $? -ne 0 ] && exit 1
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        # Run scripts
+
+        commit-changes --branch "master" \
+                       --commands "npm run build" \
+                       --commit-message "Update content [skip ci]";
+
+        printf "\n";
+
+        update-branch  --commands "npm run build" \
+                       --commit-message "Update branch [skip ci]" \
+                       --directory "test/fixtures/test" \
+                       --distribution-branch "test" \
+                       --source-branch "master";
+
+      fi
+
+env:
+  global:
+    - secure: "UvlM++538EzR9rj/8rJQ8P8e/OfJ0CZVe/N7CS2N0tA0AqBJRH9ytNjlrVKB8/TQwqoZCfM42NWfMKnvZql6BYCs4h9v25rhDreAFMTh/WNCBLQogtfDxw3Vlj25I3qLqe5COv57ELyBgKI34ViWVW7lWBS2vQOX+D2pTIqZ6bo="
+
+language: node_js
+
+node_js:
+  - "io.js"
