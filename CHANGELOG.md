@@ -1,9 +1,12 @@
 ### HEAD
 
 * Make `update-branch.sh` allow even a non-root directory
-  to be specified.
-* Make `commit-changes.sh` push to the specified branch.
-* Make scripts use `travis-after-all`.
+  to be specified
+  [[5554b9a](https://github.com/h5bp-bot/scripts/commit/5554b9a3fc6b09b37df7a95b40438efe08148eb6)].
+* Make `commit-changes.sh` push to the specified branch
+  [[2861a1d](https://github.com/h5bp-bot/scripts/commit/2861a1dde5489211e3a08d325f2461654330a7c1)].
+* Make scripts use `travis-after-all`
+  [[2d5dd96](https://github.com/h5bp-bot/scripts/commit/2d5dd96e6ec1190c6963f30a9e780e98fb1e5052)].
 * Move scripts into `bin/`
   [[727433c](https://github.com/h5bp-bot/scripts/commit/727433c628f25fdda094bc31b655aa889fd7079a)].
 * Rename script files to have more generic names
