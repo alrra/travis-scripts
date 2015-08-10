@@ -1,5 +1,12 @@
 {
   "author": "Cătălin Mariș <alrraa@gmail.com> (http://catalinmaris.com/)",
+  "babel": {
+    "modules": "common",
+    "optional": [
+      "es7.asyncFunctions",
+      "runtime"
+    ]
+  },
   "bin": {
     "commit-changes": "bin/commit-changes.sh",
     "update-branch": "bin/update-branch.sh"
