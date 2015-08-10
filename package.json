@@ -32,7 +32,7 @@
   "repository": "alrra/travis-scripts",
   "scripts": {
     "build": "printf \"%s\n\" \"$(node -e \"console.log(require('./package.json')['travis-scripts']['test-text'])\")\" >> test/fixtures/test/file.txt",
-    "test": "mocha --compilers js:babel/register --reporter spec --slow 5m --timeout 15m test/tests.js"
+    "test": "mocha --compilers js:babel/register --reporter spec --slow 15m --timeout 30m test/tests.js"
   },
   "travis-scripts": {
     "test-branch-prefix": "test-build-",
