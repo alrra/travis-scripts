@@ -1,5 +1,6 @@
 ### HEAD
 
+* Update `travis-after-all` to `v1.3.0`.
 * Make `update-branch.sh` allow even a non-root directory
   to be specified
   [[5554b9a](https://github.com/h5bp-bot/scripts/commit/5554b9a3fc6b09b37df7a95b40438efe08148eb6)].
