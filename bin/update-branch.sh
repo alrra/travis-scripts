@@ -97,7 +97,7 @@ run_travis_after_all() {
     if [ $? -eq 0 ]; then
         $(npm bin)/travis-after-all
     else
-        curl -sSL https://raw.githubusercontent.com/alrra/travis-after-all/1.4.0/lib/travis-after-all.js | node
+        curl -sSL https://raw.githubusercontent.com/alrra/travis-after-all/1.4.1/lib/travis-after-all.js | node
     fi
 
 }

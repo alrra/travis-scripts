@@ -19,7 +19,7 @@
     "babel-runtime": "^5.6.4",
     "js-yaml": "^3.3.1",
     "mocha": "^2.2.5",
-    "travis-after-all": "^1.4.0"
+    "travis-after-all": "^1.4.1"
   },
   "homepage": "https://github.com/alrra/travis-scripts#readme",
   "keywords": [
