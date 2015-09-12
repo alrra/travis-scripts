@@ -53,6 +53,6 @@ env:
 language: node_js
 
 node_js:
-  - "io.js"
+  - "4.0"
 
 sudo: false
