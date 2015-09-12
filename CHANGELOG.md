@@ -54,7 +54,7 @@
 
 ### 0.2.1 (November 7, 2014)
 
-* [[`caaea4f096`](https://github.com/alrra/travis-scripts/commit/caaea4f09687a906fb99b48a4b46e48ec00632c6)] -
+* [[`f876d6e060`](https://github.com/alrra/travis-scripts/commit/f876d6e0605e66fa494b40c3908f8b468088e8c8)] -
   Make scripts only output the strictly necessary content.
 
 ### 0.2.0 (November 6, 2014)
