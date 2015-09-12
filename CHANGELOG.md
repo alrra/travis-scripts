@@ -1,7 +1,6 @@
 ### HEAD
 
-* Update `travis-after-all` to `v1.3.0`
-  [[a14855f](https://github.com/alrra/travis-scripts/commit/a14855f433566281d8aa56caa2e90dbc624b885c)].
+* Update `travis-after-all` to `v1.4.0`.
 * Make `update-branch.sh` allow even a non-root directory
   to be specified
   [[5554b9a](https://github.com/alrra/travis-scripts/commit/5554b9a3fc6b09b37df7a95b40438efe08148eb6)].
