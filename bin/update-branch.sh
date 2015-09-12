@@ -24,8 +24,7 @@ execute() {
 }
 
 get_repository_url() {
-    printf "https://${GH_TOKEN}@$(git config --get remote.origin.url \
-        | sed 's/git:\/\///g')"
+    printf "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
 }
 
 print_error() {
