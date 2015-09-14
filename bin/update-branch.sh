@@ -1,6 +1,7 @@
 #!/bin/bash
 
-declare repository_url=""
+declare -r LOG_PREFIX='[travis-scripts]'
+declare repository_url=''
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -28,35 +29,42 @@ get_repository_url() {
 }
 
 print_error() {
-    # Print output in red
-    printf "\e[0;31m [✖] $1\e[0m\n"
+    print_in_red "$LOG_PREFIX [✖] $1 $2\n"
 }
 
 print_help_message() {
-    printf "\n"
-    printf "OPTIONS:"
-    printf "\n"
-    printf "\n"
-    printf " -c, --commands <commands>\n"
-    printf "\n"
-    printf "     Specifies the commands that will be executed before everything else in order to update the content (default: 'npm install && npm run build')\n"
-    printf "\n"
-    printf " -d, --directory <directory>\n"
-    printf "\n"
-    printf "     Specifies the name of the distribution/build directory (default: 'dist')\n"
-    printf "\n"
-    printf " -db, --distribution-branch <branch_name>\n"
-    printf "\n"
-    printf "     Specifies the name of the branch that will contain the content of the site (default: 'gh-pages')\n"
-    printf "\n"
-    printf " -m, --commit-message <message>\n"
-    printf "\n"
-    printf "     Specifies the commit message (default: 'Hey server, this content is for you! [skip ci]')\n"
-    printf "\n"
-    printf " -sb, --source-branch <branch_name>\n"
-    printf "\n"
-    printf "     Specifies the name of the branch that contains the source code (default: 'master') \n"
-    printf "\n"
+    printf '\n'
+    printf 'OPTIONS:'
+    printf '\n'
+    printf '\n'
+    printf ' -c, --commands <commands>\n'
+    printf '\n'
+    printf '     Specifies the commands that will be executed before everything else in order to update the content (default: 'npm install && npm run build')\n'
+    printf '\n'
+    printf ' -d, --directory <directory>\n'
+    printf '\n'
+    printf '     Specifies the name of the distribution/build directory (default: "dist")\n'
+    printf '\n'
+    printf ' -db, --distribution-branch <branch_name>\n'
+    printf '\n'
+    printf '     Specifies the name of the branch that will contain the content of the site (default: "gh-pages")\n'
+    printf '\n'
+    printf ' -m, --commit-message <message>\n'
+    printf '\n'
+    printf '     Specifies the commit message (default: "Hey server, this content is for you! [skip ci]")\n'
+    printf '\n'
+    printf ' -sb, --source-branch <branch_name>\n'
+    printf '\n'
+    printf '     Specifies the name of the branch that contains the source code (default: "master") \n'
+    printf '\n'
+}
+
+print_in_green() {
+    printf "\e[0;32m$1\e[0m"
+}
+
+print_in_red() {
+    printf "\e[0;31m$1\e[0m"
 }
 
 print_result() {
@@ -64,14 +72,11 @@ print_result() {
         && print_success "$2" \
         || print_error "$2"
 
-    if [ $1 -ne 0 ]; then
-        exit 1
-    fi
+    return $1
 }
 
 print_success() {
-    # Print output in green
-    printf "\e[0;32m [✔] $1\e[0m\n"
+    print_in_green "$LOG_PREFIX [✔] $1\n"
 }
 
 remove_sensitive_information() {
@@ -122,11 +127,11 @@ run_travis_after_all() {
 
 main() {
 
-    local commands="npm install && npm run build"
-    local commitMessage="Hey server, this content is for you! [skip ci]"
-    local directory="dist"
-    local distributionBranch="gh-pages"
-    local sourceBranch="master"
+    local commands='npm install && npm run build'
+    local commitMessage='Hey server, this content is for you! [skip ci]'
+    local directory='dist'
+    local distributionBranch='gh-pages'
+    local sourceBranch='master'
 
     while :; do
         case $1 in
