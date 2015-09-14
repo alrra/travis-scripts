@@ -14,8 +14,8 @@ commit_and_push_changes() {
         && git init \
         && git add -A \
         && git commit --message "$2" \
-        && git checkout -b "$1" \
-        && git push --force "$repository_url" "$1"
+        && git checkout --quiet -b "$1" \
+        && git push --quiet --force "$repository_url" "$1"
 
 }
 
@@ -72,6 +72,22 @@ print_result() {
 print_success() {
     # Print output in green
     printf "\e[0;32m [✔] $1\e[0m\n"
+}
+
+remove_sensitive_information() {
+
+    declare -r CENSURE_TEST='[secure]';
+
+    while read line; do
+
+        line="${line//${GH_TOKEN}/$CENSURE_TEST}"
+        line="${line//${GH_USER_EMAIL}/$CENSURE_TEST}"
+        line="${line//${GH_USER_NAME}/$CENSURE_TEST}"
+
+        print_error "$line"
+
+    done
+
 }
 
 remove_unneeded_files() {
@@ -195,13 +211,19 @@ main() {
 
         repository_url="$(get_repository_url)"
 
-        execute "$commands" &> /dev/null
+        execute "$commands" \
+            2> >(remove_sensitive_information) \
+            1> /dev/null
         print_result $? "Update content"
 
-        remove_unneeded_files "$directory" &> /dev/null
+        remove_unneeded_files "$directory" \
+            2> >(remove_sensitive_information) \
+            1> /dev/null
         print_result $? "Remove unneeded content"
 
-        commit_and_push_changes "$distributionBranch" "$commitMessage" &> /dev/null
+        commit_and_push_changes "$distributionBranch" "$commitMessage" \
+            2> >(remove_sensitive_information) \
+            1> /dev/null
         print_result $? "Commit and push changes"
 
     fi

@@ -1,5 +1,6 @@
 ### HEAD
 
+* Make scripts show all the error messages.
 * [[`fe2851fa5d`](https://github.com/alrra/travis-scripts/commit/fe2851fa5d84af232c54e496cfbce9876f8df9c9)] -
   Update [`travis-after-all`](https://github.com/alrra/travis-after-all) to `v1.4.1`.
 * [[`5554b9a3fc`](https://github.com/alrra/travis-scripts/commit/5554b9a3fc6b09b37df7a95b40438efe08148eb6)] -

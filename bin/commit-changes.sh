@@ -8,10 +8,10 @@ commit_and_push_changes() {
     if [ "$(git status --porcelain)" != "" ]; then
         git config --global user.email ${GH_USER_EMAIL} \
             && git config --global user.name ${GH_USER_NAME} \
-            && git checkout "$1" \
+            && git checkout --quiet "$1" \
             && git add -A \
             && git commit --message "$2" \
-            && git push "$(get_repository_url)" "$1"
+            && git push --quiet "$(get_repository_url)" "$1"
     fi
 
 }
@@ -61,6 +61,22 @@ print_result() {
 print_success() {
     # Print output in green
     printf "\e[0;32m [✔] $1\e[0m\n"
+}
+
+remove_sensitive_information() {
+
+    declare -r CENSURE_TEST='[secure]';
+
+    while read line; do
+
+        line="${line//${GH_TOKEN}/$CENSURE_TEST}"
+        line="${line//${GH_USER_EMAIL}/$CENSURE_TEST}"
+        line="${line//${GH_USER_NAME}/$CENSURE_TEST}"
+
+        print_error "$line"
+
+    done
+
 }
 
 run_travis_after_all() {
@@ -142,10 +158,14 @@ main() {
 
         # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        execute "$commands" &> /dev/null
+        execute "$commands" \
+            2> >(remove_sensitive_information) \
+            1> /dev/null
         print_result $? "Update content"
 
-        commit_and_push_changes "$branch" "$commitMessage" &> /dev/null
+        commit_and_push_changes "$branch" "$commitMessage" \
+            2> >(remove_sensitive_information) \
+            1> /dev/null
         print_result $? "Commit and push changes (if necessary)"
 
     fi
