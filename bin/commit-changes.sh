@@ -39,15 +39,15 @@ print_help_message() {
     printf '\n'
     printf ' -b, --branch <branch_name>\n'
     printf '\n'
-    printf '     Specifies the commands that will be executed before everything else in order to update the content (default: "npm install && npm run build")\n'
+    printf '     Specifies the commands that will be executed before everything else in order to update the content\n'
     printf '\n'
     printf ' -c, --commands <commands>\n'
     printf '\n'
-    printf '     Specifies the commands that will be executed before everything else (default: "npm install && npm run build")\n'
+    printf '     Specifies the commands that will be executed before everything else\n'
     printf '\n'
     printf ' -m, --commit-message <message>\n'
     printf '\n'
-    printf '     Specifies the commit message (default: "Update content [skip ci]")\n'
+    printf '     Specifies the commit message\n'
     printf '\n'
 }
 
@@ -103,9 +103,13 @@ run_travis_after_all() {
 
 main() {
 
-    local branch='master'
-    local commands='npm install && npm run build'
-    local commitMessage='Update content [skip ci]'
+    local branch=
+    local commands=
+    local commitMessage=
+
+    local allOptionsAreProvided='true'
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     while :; do
         case $1 in
@@ -116,34 +120,35 @@ main() {
             ;;
 
             -b|--branch)
-                if [ "$2" ]; then
+                if [ -n "$2" ]; then
                     branch="$2"
                     shift 2
                     continue
                 else
-                    echo 'ERROR: A non-empty "-b/--branch <branch_name>" argument needs to be specified' >&2
+                    print_error 'ERROR: A non-empty "-b/--branch <branch_name>" argument needs to be specified'
                     exit 1
                 fi
             ;;
 
             -c|--commands)
-                if [ "$2" ]; then
+                if [ -n "$2" ]; then
                     commands="$2"
                     shift 2
                     continue
                 else
-                    echo 'ERROR: A non-empty "-c/--commands <commands>" argument needs to be specified' >&2
+                    print_error 'ERROR: A non-empty "-c/--commands <commands>" argument needs to be specified'
                     exit 1
                 fi
             ;;
 
             -m|--commit-message)
-                if [ "$2" ]; then
+                if [ -n "$2" ]; then
                     commitMessage="$2"
                     shift 2
                     continue
+
                 else
-                    echo 'ERROR: A non-empty "-m/--commit-message <message>" argument needs to be specified' >&2
+                    print_error 'ERROR: A non-empty "-m/--commit-message <message>" argument needs to be specified'
                     exit 1
                 fi
             ;;
@@ -154,6 +159,30 @@ main() {
 
         shift
     done
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Check if all the required options are provided
+
+    if [ -z "$branch" ]; then
+        print_error 'ERROR: option "-b/--branch <branch_name>" not given (see --help)'
+        allOptionsAreProvided='false'
+    fi
+
+    if [ -z "$commands" ]; then
+        print_error 'ERROR: option "-c/--commands <commands>" not given (see --help).'
+        allOptionsAreProvided='false'
+    fi
+
+    if [ -z "$commitMessage" ]; then
+        print_error 'ERROR: option "-m/--commit-message <message>" not given (see --help).'
+        allOptionsAreProvided='false'
+    fi
+
+    [ "$allOptionsAreProvided" == 'false' ] \
+        && exit 1
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Only execute the following if the
     # commit was made to the specified branch

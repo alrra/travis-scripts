@@ -39,23 +39,23 @@ print_help_message() {
     printf '\n'
     printf ' -c, --commands <commands>\n'
     printf '\n'
-    printf '     Specifies the commands that will be executed before everything else in order to update the content (default: 'npm install && npm run build')\n'
+    printf '     Specifies the commands that will be executed before everything else in order to update the content\n'
     printf '\n'
     printf ' -d, --directory <directory>\n'
     printf '\n'
-    printf '     Specifies the name of the distribution/build directory (default: "dist")\n'
+    printf '     Specifies the name of the distribution/build directory\n'
     printf '\n'
     printf ' -db, --distribution-branch <branch_name>\n'
     printf '\n'
-    printf '     Specifies the name of the branch that will contain the content of the site (default: "gh-pages")\n'
+    printf '     Specifies the name of the branch that will contain the content of the site\n'
     printf '\n'
     printf ' -m, --commit-message <message>\n'
     printf '\n'
-    printf '     Specifies the commit message (default: "Hey server, this content is for you! [skip ci]")\n'
+    printf '     Specifies the commit message\n'
     printf '\n'
     printf ' -sb, --source-branch <branch_name>\n'
     printf '\n'
-    printf '     Specifies the name of the branch that contains the source code (default: "master") \n'
+    printf '     Specifies the name of the branch that contains the source code\n'
     printf '\n'
 }
 
@@ -127,11 +127,15 @@ run_travis_after_all() {
 
 main() {
 
-    local commands='npm install && npm run build'
-    local commitMessage='Hey server, this content is for you! [skip ci]'
-    local directory='dist'
-    local distributionBranch='gh-pages'
-    local sourceBranch='master'
+    local commands=
+    local commitMessage=
+    local directory=
+    local distributionBranch=
+    local sourceBranch=
+
+    local allOptionsAreProvided='true'
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     while :; do
         case $1 in
@@ -147,7 +151,7 @@ main() {
                     shift 2
                     continue
                 else
-                    echo 'ERROR: A non-empty "-c/--commands <commands>" argument needs to be specified' >&2
+                    print_error 'ERROR: A non-empty "-c/--commands <commands>" argument needs to be specified'
                     exit 1
                 fi
             ;;
@@ -158,7 +162,7 @@ main() {
                     shift 2
                     continue
                 else
-                    echo 'ERROR: A non-empty "-d/--directory <directory>" argument needs to be specified' >&2
+                    print_error 'ERROR: A non-empty "-d/--directory <directory>" argument needs to be specified'
                     exit 1
                 fi
             ;;
@@ -169,7 +173,7 @@ main() {
                     shift 2
                     continue
                 else
-                    echo 'ERROR: A non-empty "-db/--distribution-branch <branch_name>" argument needs to be specified' >&2
+                    print_error 'ERROR: A non-empty "-db/--distribution-branch <branch_name>" argument needs to be specified'
                     exit 1
                 fi
             ;;
@@ -202,6 +206,40 @@ main() {
 
         shift
     done
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Check if all the required options are provided
+
+    if [ -z "$commands" ]; then
+        print_error 'ERROR: option "-c/--commands <commands>" not given (see --help).'
+        allOptionsAreProvided='false'
+    fi
+
+    if [ -z "$commitMessage" ]; then
+        print_error 'ERROR: option "-m/--commit-message <message>" not given (see --help).'
+        allOptionsAreProvided='false'
+    fi
+
+    if [ -z "$directory" ]; then
+        print_error 'ERROR: option "-d/--directory <directory>" not given (see --help).'
+        allOptionsAreProvided='false'
+    fi
+
+    if [ -z "$distributionBranch" ]; then
+        print_error 'ERROR: option "-db/--distribution-branch <branch_name>" not given (see --help).'
+        allOptionsAreProvided='false'
+    fi
+
+    if [ -z "$sourceBranch" ]; then
+        print_error 'ERROR: option "-sb/--source-branch <branch_name>" not given (see --help).'
+        allOptionsAreProvided='false'
+    fi
+
+    [ "$allOptionsAreProvided" == 'false' ] \
+        && exit 1
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Only execute the following if the commit
     # was made to the specified source branch
