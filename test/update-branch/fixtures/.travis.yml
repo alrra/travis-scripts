@@ -1,0 +1,33 @@
+# For more information about the configurations used
+# in this file, please see the Travis CI documentation:
+# http://docs.travis-ci.com
+
+after_script:
+  - |
+
+      # Make the scripts available
+      npm link > /dev/null
+      [ $? -ne 0 ] && exit 1
+
+      # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+      update-branch --commands 'npm run -s print-test-text > test/update-branch/fixtures/test_files/file.txt' \
+                    --commit-message "Update branch content [skip ci]" \
+                    --directory "test/update-branch/fixtures/test_files" \
+                    --distribution-branch "${TRAVIS_BRANCH}-dist" \
+                    --source-branch "$TRAVIS_BRANCH";
+
+env:
+  global:
+    - secure: "{{SECURE_KEY}}"
+
+language: node_js
+
+node_js:
+  - "0.12"
+  - "4.0"
+
+notifications:
+  email: false
+
+sudo: false

@@ -12,13 +12,19 @@
     "update-branch": "bin/update-branch.sh"
   },
   "bugs": "https://github.com/alrra/travis-scripts/issues",
+  "config": {
+    "test-branch-prefix": "test-build",
+    "test-text": "it works!"
+  },
   "description": "...",
   "devDependencies": {
     "babel": "^5.6.4",
     "babel-core": "^5.6.4",
     "babel-runtime": "^5.6.4",
+    "glob": "^5.0.14",
     "js-yaml": "^3.3.1",
-    "mocha": "^2.2.5",
+    "tap": "^1.4.1",
+    "tap-mocha-reporter": "0.0.20",
     "travis-after-all": "^1.4.1"
   },
   "homepage": "https://github.com/alrra/travis-scripts#readme",
@@ -31,12 +37,9 @@
   "name": "travis-scripts",
   "repository": "alrra/travis-scripts",
   "scripts": {
-    "build": "printf \"%s\n\" \"$(node -e \"console.log(require('./package.json')['travis-scripts']['test-text'])\")\" >> test/fixtures/test/file.txt",
-    "test": "mocha --compilers js:babel/register --reporter spec --slow 15m --timeout 30m test/tests.js"
-  },
-  "travis-scripts": {
-    "test-branch-prefix": "test-build-",
-    "test-text": "it works!"
+    "print-test-text": "printf \"%s\" \"$npm_package_config_test_text\"",
+    "pretest": "rm -rf dist_test && babel test --out-dir dist_test",
+    "test": "node dist_test/main.js | tap-mocha-reporter spec"
   },
   "version": "0.6.1",
   "private": true

@@ -11,19 +11,9 @@ after_script:
 
       # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-      commit-changes --branch "{{TEST_BRANCH}}" \
-                     --commands "npm run build" \
+      commit-changes --branch "$TRAVIS_BRANCH" \
+                     --commands 'npm run -s print-test-text > test/commit-changes/fixtures/test_files/file.txt' \
                      --commit-message "Update content [skip ci]";
-
-      printf "\n";
-
-      # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-      update-branch  --commands "npm run build" \
-                     --commit-message "Update branch content [skip ci]" \
-                     --directory "test/fixtures/test" \
-                     --distribution-branch "{{TEST_DIST_BRANCH}}" \
-                     --source-branch "{{TEST_BRANCH}}";
 
 env:
   global:
@@ -32,7 +22,6 @@ env:
 language: node_js
 
 node_js:
-  - "0.10"
   - "0.12"
   - "4.0"
 

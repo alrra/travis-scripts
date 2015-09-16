@@ -2,17 +2,15 @@ import fs from 'fs';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-const replaceInLine = (line, patterns = {}) => {
+const replaceInLine = (line = '', patterns = {}) => {
 
-    let result = line;
+    Object.keys(patterns).forEach((key) => {
+        line = line.replace(RegExp(key, 'g'), patterns[key]);
+    });
 
-    for ( let key of Object.keys(patterns) ) {
-        result = result.replace(RegExp(key, 'g'), patterns[key]);
-    }
+    return line;
 
-    return result;
-
-}
+};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -33,18 +31,15 @@ export default (sourceFilePath, targetFilePath, replacePatterns) =>
 
             let c = '';
             let line = '';
-            let ok = true;
 
             do {
 
                 c = readableStream.read(1);
                 line += c;
 
-                if ( c !== null ) {
-                    if ( c === '\n' ) {
-                        writableStream.write(replaceInLine(line, replacePatterns));
-                        line = '';
-                    }
+                if ( c !== null && c === '\n' ) {
+                    writableStream.write(replaceInLine(line, replacePatterns));
+                    line = '';
                 }
 
             } while ( c !== null );
@@ -53,7 +48,7 @@ export default (sourceFilePath, targetFilePath, replacePatterns) =>
 
         });
 
-        writableStream.on('finish', resolve);
         writableStream.on('error', reject);
+        writableStream.on('finish', resolve);
 
     });

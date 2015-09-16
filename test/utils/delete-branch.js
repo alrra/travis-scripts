@@ -1,7 +1,8 @@
-import configs from './configs';
-import execute from './execute';
+import exec from './exec';
+import repository from './repository';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-export default (branchName) =>
-    execute(`git push ${configs.repository.URL} :${branchName}`);
+export default async (branchName) => {
+    await exec(`git push ${repository.ORIGIN_URL} :${branchName}`);
+};

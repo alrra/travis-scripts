@@ -1,18 +1,18 @@
 import { exec } from 'child_process';
 
-import configs from './configs';
+import repository from './repository';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 const sanitizeText = (text) => {
 
-    const censureString = '[secure]';
+    const CENSURE_TEST = '[secure]';
 
-    return `${text}`.replace(RegExp(`${configs.user.TOKEN}`, 'g'), censureString)
-                    .replace(RegExp(`${configs.user.NAME}`, 'g'), censureString)
-                    .replace(RegExp(`${configs.user.EMAIL}`, 'g'), censureString);
+    return `${text}`.replace(RegExp(`${repository.user.TOKEN}`, 'g'), CENSURE_TEST)
+                    .replace(RegExp(`${repository.user.NAME}`, 'g'), CENSURE_TEST)
+                    .replace(RegExp(`${repository.user.EMAIL}`, 'g'), CENSURE_TEST);
 
-}
+};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
