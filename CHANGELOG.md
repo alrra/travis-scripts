@@ -1,6 +1,6 @@
 ### HEAD
 
-* [[`8da77b1d6b`](https://github.com/alrra/travis-scripts/commit/8da77b1d6bc6dcf068caa5b5b60ef9dce7a7217e)] -
+* [[`e6ad0cb681`](https://github.com/alrra/travis-scripts/commit/e6ad0cb681c03c12df2092ab86d4187d6c080f70)] -
   Remove all the default option values from scripts.
 * [[`b06c39b29f`](https://github.com/alrra/travis-scripts/commit/b06c39b29f1f330cd68f2f3b7bd231edf1ab4ee4)] -
   Update [`travis-after-all`](https://github.com/alrra/travis-after-all) to `v1.4.2`. 
