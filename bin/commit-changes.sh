@@ -191,7 +191,7 @@ main() {
        [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
         run_travis_after_all
-        [ $? -ne 0 ] && exit 0
+        [ $? -ne 0 ] && exit 1
 
         # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -199,6 +199,7 @@ main() {
             2> >(remove_sensitive_information) \
             1> /dev/null
         print_result $? "Update content"
+        [ $? -ne 0 ] && exit 1
 
         commit_and_push_changes "$branch" "$commitMessage" \
             2> >(remove_sensitive_information) \
