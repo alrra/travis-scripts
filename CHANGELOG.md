@@ -1,4 +1,4 @@
-### HEAD
+### 1.1.0 (September 18, 2015)
 
 * [[`dfa7d10049`](https://github.com/alrra/travis-scripts/commit/dfa7d10049ce63b87a33c2fbee93cbff62795a1c)] -
   Make scripts immediately stop if something failed.
