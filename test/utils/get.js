@@ -38,4 +38,4 @@ export default {
     getContent: getContent,
     getJSON: getJSON,
     getStatusCode: getStatusCode
-}
+};

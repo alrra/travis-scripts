@@ -26,6 +26,7 @@ const TRAVIS_REPO_SLUG = `${process.env.TRAVIS_REPO_SLUG}`;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 const CHECK_INTERVAL = 20000;
+const REQUEST_DELAY = 3000;
 
 // ---------------------------------------------------------------------
 
@@ -48,6 +49,7 @@ const getBuildID = async (repositoryName, branchName) => {
         let builds;
         let lastBuildNumber;
 
+        await wait(REQUEST_DELAY);
         builds = await getJSON(url);
 
         for ( let i = 0; i < builds.length; i++ ) {
@@ -124,6 +126,7 @@ const getFinalData = async (url, waitingMsg) => {
             await wait(CHECK_INTERVAL);
         }
 
+        await wait(REQUEST_DELAY);
         data = await getJSON(url);
 
     } while ( data.state !== 'finished' );
