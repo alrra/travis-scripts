@@ -16,6 +16,9 @@
     "test-branch-prefix": "test-build",
     "test-text": "it works!"
   },
+  "dependencies": {
+    "travis-after-all": "1.4.3"
+  },
   "description": "Scripts that can help automate certain things using Travis CI",
   "devDependencies": {
     "babel": "^5.6.4",
@@ -24,8 +27,7 @@
     "glob": "^5.0.14",
     "js-yaml": "^3.3.1",
     "tap": "^1.4.1",
-    "tap-mocha-reporter": "0.0.20",
-    "travis-after-all": "^1.4.3"
+    "tap-mocha-reporter": "0.0.20"
   },
   "homepage": "https://github.com/alrra/travis-scripts#readme",
   "keywords": [
