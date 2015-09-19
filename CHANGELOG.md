@@ -1,3 +1,7 @@
+### HEAD
+
+* Update [`travis-after-all`](https://github.com/alrra/travis-after-all) to `v1.4.3`.
+
 ### 1.1.0 (September 18, 2015)
 
 * [[`dfa7d10049`](https://github.com/alrra/travis-scripts/commit/dfa7d10049ce63b87a33c2fbee93cbff62795a1c)] -
@@ -8,7 +12,7 @@
 * [[`e6ad0cb681`](https://github.com/alrra/travis-scripts/commit/e6ad0cb681c03c12df2092ab86d4187d6c080f70)] -
   Remove all the default option values from scripts.
 * [[`b06c39b29f`](https://github.com/alrra/travis-scripts/commit/b06c39b29f1f330cd68f2f3b7bd231edf1ab4ee4)] -
-  Update [`travis-after-all`](https://github.com/alrra/travis-after-all) to `v1.4.2`. 
+  Update [`travis-after-all`](https://github.com/alrra/travis-after-all) to `v1.4.2`.
 * [[`0947d00d8b`](https://github.com/alrra/travis-scripts/commit/0947d00d8b3775f926e5a0c70b901b2efce91f7d)] -
   Make scripts show all the error messages.
 * [[`5554b9a3fc`](https://github.com/alrra/travis-scripts/commit/5554b9a3fc6b09b37df7a95b40438efe08148eb6)] -
