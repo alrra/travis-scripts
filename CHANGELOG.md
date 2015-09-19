@@ -1,6 +1,7 @@
 ### HEAD
 
-* Update [`travis-after-all`](https://github.com/alrra/travis-after-all) to `v1.4.3`.
+* [[`1bdd08055f`](https://github.com/alrra/travis-scripts/commit/1bdd08055f60b81ce148ccd7464c9022420c057a)] -
+  Update [`travis-after-all`](https://github.com/alrra/travis-after-all) to `v1.4.3`.
 
 ### 1.1.0 (September 18, 2015)
 
