@@ -1,10 +1,12 @@
 {
   "author": "Cătălin Mariș <alrraa@gmail.com> (http://catalinmaris.com/)",
   "babel": {
-    "modules": "common",
-    "optional": [
-      "es7.asyncFunctions",
-      "runtime"
+    "plugins": [
+      "transform-async-to-generator",
+      "transform-runtime"
+    ],
+    "presets": [
+      "es2015"
     ]
   },
   "bin": {
@@ -21,12 +23,15 @@
   },
   "description": "Scripts that can help automate certain things using Travis CI",
   "devDependencies": {
-    "babel": "^5.6.4",
-    "babel-core": "^5.6.4",
-    "babel-runtime": "^5.8.25",
+    "babel-cli": "^6.0.14",
+    "babel-plugin-transform-async-to-generator": "6.0.14",
+    "babel-plugin-transform-runtime": "^6.0.14",
+    "babel-polyfill": "^6.0.16",
+    "babel-preset-es2015": "^6.0.14",
+    "babel-runtime": "^6.0.14",
     "glob": "^5.0.15",
     "js-yaml": "^3.3.1",
-    "tap": "^2.0.0",
+    "tap": "^2.2.0",
     "tap-mocha-reporter": "0.0.21"
   },
   "homepage": "https://github.com/alrra/travis-scripts#readme",

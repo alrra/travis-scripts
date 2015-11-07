@@ -1,7 +1,7 @@
 import createTestBranch from './create-test-branch';
 import deleteBranch from './delete-branch';
 import getTestBranchName from './get-test-branch-name';
-import travis from './travis';
+import * as travis from './travis';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

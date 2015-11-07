@@ -155,15 +155,15 @@ const isPullRequest = () =>
 
 // ---------------------------------------------------------------------
 
-export default {
-    getBranchName: getBranchName,
-    getBuildData: getBuildData,
-    getBuildID: getBuildID,
-    getCurrentBuildID: getCurrentBuildID,
-    getCurrentBuildNumber: getCurrentBuildNumber,
-    getCurrentJobID: getCurrentJobID,
-    getFinalBuildData: getFinalBuildData,
-    getFinalJobData: getFinalJobData,
-    getRepositorySlug: getRepositorySlug,
-    isPullRequest: isPullRequest
+export {
+    getBranchName,
+    getBuildData,
+    getBuildID,
+    getCurrentBuildID,
+    getCurrentBuildNumber,
+    getCurrentJobID,
+    getFinalBuildData,
+    getFinalJobData,
+    getRepositorySlug,
+    isPullRequest
 };

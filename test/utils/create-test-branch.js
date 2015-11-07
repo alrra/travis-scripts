@@ -5,7 +5,7 @@ import exec from './exec';
 import getSecureKey from './get-secure-key';
 import getTestBranchName from './get-test-branch-name';
 import repository from './repository';
-import travis from './travis';
+import { getBranchName } from './travis';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -23,7 +23,7 @@ const createTestBranch = async (branchName) => {
     await exec(`git push ${repository.ORIGIN_URL} ${branchName}`);
 
     // Change back to the original branch
-    await exec(`git checkout ${travis.getBranchName()}`);
+    await exec(`git checkout ${getBranchName()}`);
 
 };
 

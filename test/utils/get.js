@@ -34,8 +34,8 @@ const getStatusCode = (url) =>
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-export default {
-    getContent: getContent,
-    getJSON: getJSON,
-    getStatusCode: getStatusCode
+export {
+    getContent,
+    getJSON,
+    getStatusCode
 };

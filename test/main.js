@@ -2,7 +2,7 @@ import tap from 'tap';
 
 import pkg from './../package.json';
 
-import travis from './utils/travis';
+import * as travis from './utils/travis';
 
 import testCommitChangesScript from './commit-changes/tests';
 import testUpdateBranchScript from './update-branch/tests';

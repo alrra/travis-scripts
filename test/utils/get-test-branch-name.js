@@ -1,10 +1,10 @@
 import pkg from './../../package.json';
 
-import travis from './travis';
+import { getCurrentBuildID } from './travis';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-const PREFIX = `${pkg['config']['test-branch-prefix']}-${travis.getCurrentBuildID()}`;
+const PREFIX = `${pkg['config']['test-branch-prefix']}-${getCurrentBuildID()}`;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

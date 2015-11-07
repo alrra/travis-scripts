@@ -2,10 +2,10 @@ import path from 'path';
 
 import pkg from './../../package.json';
 
-import get from './../utils/get';
+import { getContent, getStatusCode } from './../utils/get';
 import getTestBranchName from './../utils/get-test-branch-name';
 import testBuild from './../utils/test-build';
-import travis from './../utils/travis';
+import { getRepositorySlug } from './../utils/travis';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -19,9 +19,9 @@ const customTests = async (tap) => {
 
     const TEST_BRANCH_NAME = getTestBranchName(CURRENT_TEST_DIR);
 
-    const TEST_FILE_URL = `https://raw.githubusercontent.com/${travis.getRepositorySlug()}/${TEST_BRANCH_NAME}/test/${CURRENT_TEST_DIR}/fixtures/test_files/file.txt`;
-    const TEST_FILE_STATUS_CODE = await get.getStatusCode(TEST_FILE_URL);
-    const TEST_FILE_CONTENT = await get.getContent(TEST_FILE_URL);
+    const TEST_FILE_URL = `https://raw.githubusercontent.com/${getRepositorySlug()}/${TEST_BRANCH_NAME}/test/${CURRENT_TEST_DIR}/fixtures/test_files/file.txt`;
+    const TEST_FILE_STATUS_CODE = await getStatusCode(TEST_FILE_URL);
+    const TEST_FILE_CONTENT = await getContent(TEST_FILE_URL);
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
