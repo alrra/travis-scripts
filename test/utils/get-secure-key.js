@@ -9,10 +9,10 @@ const getFile = (file) =>
     new Promise((resolve, reject) => {
         fs.readFile(path.join(__dirname, file), 'utf8', function (error, data) {
 
-            if ( error === null ) {
-                resolve(data);
-            } else {
+            if ( error ) {
                 reject(error);
+            } else {
+                resolve(data);
             }
 
         });
