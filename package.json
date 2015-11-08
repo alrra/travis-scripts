@@ -19,7 +19,7 @@
     "test-text": "it works!"
   },
   "dependencies": {
-    "travis-after-all": "1.4.3"
+    "travis-after-all": "1.4.4"
   },
   "description": "Scripts that can help automate certain things using Travis CI",
   "devDependencies": {
