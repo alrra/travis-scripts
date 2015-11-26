@@ -25,7 +25,7 @@ const main = async () => {
     //     this repository, and thus, the test branches cannot
     //     be automatically created
     //
-    //     http://docs.travis-ci.com/user/pull-requests/#Security-Restrictions-when-testing-Pull-Requests
+    //     https://docs.travis-ci.com/user/pull-requests/#Security-Restrictions-when-testing-Pull-Requests
     //
     //  2) there is no fully secure way to automatically import
     //     code from a pull request into a local branch

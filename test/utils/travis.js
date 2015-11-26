@@ -4,7 +4,7 @@ import { getJSON } from './get';
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Travis CI API URLs
-// http://docs.travis-ci.com/api/
+// https://docs.travis-ci.com/api/
 
 const TRAVIS_API_BUILD_URL = 'https://api.travis-ci.org/builds/';
 const TRAVIS_API_BUILDS_URL = `https://api.travis-ci.org/repositories/{{REPOSITORY_NAME}}/builds`;
@@ -13,7 +13,7 @@ const TRAVIS_API_JOBS_URL = 'https://api.travis-ci.org/jobs/';
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Travis CI set environment variables
-// http://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables
+// https://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables
 
 const TRAVIS_CURRENT_BUILD_ID = parseInt(process.env.TRAVIS_BUILD_ID, 10);
 const TRAVIS_CURRENT_BUILD_NUMBER = parseInt(process.env.TRAVIS_BUILD_NUMBER, 10);
