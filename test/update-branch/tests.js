@@ -33,19 +33,13 @@ const customTests = async (tap) => {
     tap.equal(TEST_TEXT, TEST_FILE_CONTENT, `Test file (${TEST_FILE_URL} should contain '${TEST_TEXT}\\n'`);
 
     // Delete additional branch created by this build
-    tap.test('Delete dist branch', async (t) => {
-
-        try {
-            await deleteBranch(`${TEST_BRANCH_NAME}-dist`);
-            t.pass(`Should delete branch \`${TEST_BRANCH_NAME}-dist\``);
-        } catch (e) {
-            t.fail(`Should delete branch \`${TEST_BRANCH_NAME}-dist\``);
-            t.error(e);
-        }
-
-        t.end();
-
-    });
+    try {
+        await deleteBranch(`${TEST_BRANCH_NAME}-dist`);
+        tap.pass(`Should delete branch \`${TEST_BRANCH_NAME}-dist\``);
+    } catch (e) {
+        tap.fail(`Should delete branch \`${TEST_BRANCH_NAME}-dist\``);
+        tap.error(e);
+    }
 
 }
 

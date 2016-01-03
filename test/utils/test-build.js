@@ -52,7 +52,7 @@ export default (tap, testDir, customTests) => {
             tt.ok(buildData !== undefined, `Should have the build data for branch \`${TEST_BRANCH_NAME}\``);
 
             if ( tt.passing() && typeof customTests === 'function' ) {
-                try{
+                try {
                     await customTests(tt);
                 } catch (e) {
                     tt.error(e);
