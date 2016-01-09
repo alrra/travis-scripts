@@ -1,3 +1,7 @@
+### 1.1.3 (January 10, 2016)
+
+* Make minor improvements.
+
 ### 1.1.2 (November 8, 2015)
 
 * [[`509e9ef526`](https://github.com/alrra/travis-scripts/commit/509e9ef5260b8120a11a8aef8b31e30cb99601fa)] -
