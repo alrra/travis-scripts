@@ -1,3 +1,11 @@
+### HEAD
+
+* [[`bbf3350b4e`](https://github.com/alrra/travis-scripts/commit/)] -
+  Add usage instructions in `README.md`
+  (see also : [`#17`](https://github.com/alrra/travis-scripts/issues/17)).
+* [[`932c35b236`](https://github.com/alrra/travis-scripts/commit/932c35b2364ebda17c65f6e358a41d41334598c0)] -
+  Make minor improvements to the scripts.
+
 ### 1.1.3 (January 10, 2016)
 
 * Make minor improvements.
