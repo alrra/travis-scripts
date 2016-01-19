@@ -127,11 +127,11 @@ run_travis_after_all() {
 
 main() {
 
-    local commands=
-    local commitMessage=
-    local directory=
-    local distributionBranch=
-    local sourceBranch=
+    local commands=''
+    local commitMessage=''
+    local directory=''
+    local distributionBranch=''
+    local sourceBranch=''
 
     local allOptionsAreProvided='true'
 
@@ -246,6 +246,9 @@ main() {
 
     if [ "$TRAVIS_BRANCH" == "$sourceBranch" ] && \
        [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+
+        # Run 'travis-after-all' just in case there are multiple builds
+        # https://github.com/alrra/travis-after-all#readme
 
         run_travis_after_all
         [ $? -ne 0 ] && exit 1
