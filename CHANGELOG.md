@@ -1,7 +1,11 @@
+### HEAD
+
+* Improve usage instructions from `README.md`.
+
 ### 1.2.1 (January 19, 2016)
 
 * [[`e11dabc3a5`](https://github.com/alrra/travis-scripts/commit/e11dabc3a5a7371fbe8d1bf6ae70a094b55c0212)] -
-  Fix npm install instruction in `README.md`.
+  Fix `npm` install instruction from `README.md`.
 
 ### 1.2.0 (January 19, 2016)
 
