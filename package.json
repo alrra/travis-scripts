@@ -47,5 +47,5 @@
     "pretest": "rm -rf dist_test && babel test --out-dir dist_test",
     "test": "node dist_test/main.js | tap-mocha-reporter spec"
   },
-  "version": "1.1.3"
+  "version": "1.2.0"
 }
