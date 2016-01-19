@@ -1,6 +1,7 @@
-### HEAD
+### 1.2.2 (January 19, 2016)
 
-* Improve usage instructions from `README.md`.
+* [[`4ee8e07787`](https://github.com/alrra/travis-scripts/commit/4ee8e0778799cc49bc5b2fd46672fef158f09df4)] -
+  Improve usage instructions from `README.md`.
 
 ### 1.2.1 (January 19, 2016)
 
