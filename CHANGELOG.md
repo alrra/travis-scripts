@@ -1,6 +1,6 @@
 ### 1.2.0 (January 19, 2016)
 
-* [[`bbf3350b4e`](https://github.com/alrra/travis-scripts/commit/)] -
+* [[`bbf3350b4e`](https://github.com/alrra/travis-scripts/commit/bbf3350b4edb8ac2eac0e443a24fef9f63c7d586)] -
   Add usage instructions in `README.md`
   (see also : [`#17`](https://github.com/alrra/travis-scripts/issues/17)).
 * [[`932c35b236`](https://github.com/alrra/travis-scripts/commit/932c35b2364ebda17c65f6e358a41d41334598c0)] -
