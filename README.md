@@ -8,7 +8,7 @@
 1. Save `travis-scripts` as a `devDependency` to `package.json`:
 
     ```sh
-    $ npm install travis-scripts --save-dev
+    $ npm install --save-dev @alrra/travis-scripts
     ```
 
 2. [Generate a GitHub application token](https://github.com/settings/applications/new)

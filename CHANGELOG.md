@@ -1,3 +1,7 @@
+### HEAD
+
+* Fix npm install instruction in `README.md`.
+
 ### 1.2.0 (January 19, 2016)
 
 * [[`bbf3350b4e`](https://github.com/alrra/travis-scripts/commit/bbf3350b4edb8ac2eac0e443a24fef9f63c7d586)] -
