@@ -14,7 +14,7 @@
 
 2. If you haven't, [enable Travis CI for your
 repository](https://docs.travis-ci.com/user/getting-started/#To-get-started-with-Travis-CI%3A)
-by going to your Travis CI profile page (`https://travis-ci.org/profile/<username>`)
+by going to your Travis CI [profile page](https://travis-ci.org/profile)
 and flicking the repository switch on.
 
 3. [Install the Travis CLI](https://docs.travis-ci.com/user/encryption-keys/#Usage).
