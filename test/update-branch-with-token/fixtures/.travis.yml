@@ -11,15 +11,15 @@ after_script:
 
       # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-      update-branch --commands 'npm run -s print-test-text > test/update-branch/fixtures/test_files/file.txt' \
+      update-branch --commands 'npm run -s print-test-text > test/update-branch-with-token/fixtures/test_files/file.txt' \
                     --commit-message "Update branch content [skip ci]" \
-                    --directory "test/update-branch/fixtures/test_files" \
+                    --directory "test/update-branch-with-token/fixtures/test_files" \
                     --distribution-branch "${TRAVIS_BRANCH}-dist" \
                     --source-branch "$TRAVIS_BRANCH";
 
 env:
   global:
-    - secure: "{{SECURE_KEY}}"
+    - secure: "BV2jUapUQJO9E+VDAndtAFRE0NEEnaxfxRUytmq8y7Pf1pu/lt9HoClJIVdgPXQyjufm+Q01KkRBT6KsUs5SYYiqbiBUg+KimwMj7k8b6CITeG1usoo5jwYqqLm5RPFTOJuzybRR74wjM8HistT4cmnHgnH6on+L0KodBu4QsUs="
 
 language: node_js
 

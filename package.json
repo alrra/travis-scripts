@@ -44,7 +44,7 @@
   "repository": "alrra/travis-scripts",
   "scripts": {
     "print-test-text": "printf \"%s\" \"$npm_package_config_test_text\"",
-    "pretest": "rm -rf dist_test && babel test --out-dir dist_test",
+    "pretest": "[ -z $GH_TOKEN ] && ./scripts/travis/enable_ssh_authentication.sh; rm -rf dist_test && babel test --out-dir dist_test",
     "test": "node dist_test/main.js | tap-mocha-reporter spec"
   },
   "version": "1.2.2"

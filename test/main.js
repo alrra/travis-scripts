@@ -4,8 +4,11 @@ import pkg from './../package.json';
 
 import * as travis from './utils/travis';
 
-import testCommitChangesScript from './commit-changes/tests';
-import testUpdateBranchScript from './update-branch/tests';
+import testCommitChangesScriptUsingDeployKeys from './commit-changes-with-deploy-key/tests';
+import testUpdateBranchScriptUsingDeployKeys from './update-branch-with-deploy-key/tests';
+
+import testCommitChangesScriptUsingToken from './commit-changes-with-token/tests';
+import testUpdateBranchScriptUsingToken from './update-branch-with-token/tests';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -42,9 +45,15 @@ const main = async () => {
         tap.pass('Job passed');
     } else {
         tap.test('Tests', (t) => {
-            testCommitChangesScript(t);
-            testUpdateBranchScript(t);
+
+            testCommitChangesScriptUsingToken(t);
+            testUpdateBranchScriptUsingToken(t);
+
+            testCommitChangesScriptUsingDeployKeys(t);
+            testUpdateBranchScriptUsingDeployKeys(t);
+
             t.end();
+
         });
     }
 

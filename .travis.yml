@@ -4,7 +4,7 @@
 
 env:
   global:
-    - secure: "UvlM++538EzR9rj/8rJQ8P8e/OfJ0CZVe/N7CS2N0tA0AqBJRH9ytNjlrVKB8/TQwqoZCfM42NWfMKnvZql6BYCs4h9v25rhDreAFMTh/WNCBLQogtfDxw3Vlj25I3qLqe5COv57ELyBgKI34ViWVW7lWBS2vQOX+D2pTIqZ6bo="
+    - secure: "H+HiCKmoXgkwdCX6H/IUiI191yWnNbv6TLsXmp8ywH/xmMiYyeDpTjEm3F3YdrJMkTrwchVF/CwyAaiI4lZi663RTHjBKYMWW0XYZoT5Lw54xldvMBrimhxNJMCs4iYLecaw36cYHn6BB+P9xk53ufeBg3OP5vc6eaB9T8IE22Y="
 
 language: node_js
 

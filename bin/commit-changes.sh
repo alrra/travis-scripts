@@ -10,8 +10,8 @@ commit_and_push_changes() {
     # if there are, commit and push them upstream
 
     if [ "$(git status --porcelain)" != "" ]; then
-        git config --global user.email ${GH_USER_EMAIL} \
-            && git config --global user.name ${GH_USER_NAME} \
+        git config --global user.email "$GH_USER_EMAIL" \
+            && git config --global user.name "$GH_USER_NAME" \
             && git checkout --quiet "$1" \
             && git add -A \
             && git commit --message "$2" \
@@ -25,7 +25,13 @@ execute() {
 }
 
 get_repository_url() {
-    printf "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+
+    if [ -z "$GH_TOKEN" ]; then
+        printf "git@github.com:$TRAVIS_REPO_SLUG.git"
+    else
+        printf "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+    fi
+
 }
 
 print_error() {

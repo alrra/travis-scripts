@@ -36,10 +36,7 @@ export default async (testDirName) => {
 
     await copyFile(
         path.join(ROOT_DIR, `test/${testDirName}/fixtures/.travis.yml`),
-        path.join(ROOT_DIR, '.travis.yml'),
-        {
-            '{{SECURE_KEY}}': `${SECURE_KEY}`
-        }
+        path.join(ROOT_DIR, '.travis.yml')
     );
 
     await createTestBranch(getTestBranchName(testDirName));

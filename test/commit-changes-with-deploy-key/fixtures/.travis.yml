@@ -1,0 +1,38 @@
+# For more information about the configurations used
+# in this file, please see the Travis CI documentation:
+# https://docs.travis-ci.com
+
+after_script:
+  - |
+
+      ./scripts/travis/enable_ssh_authentication.sh
+      [ $? -ne 0 ] && exit 1
+
+      # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+      # Make the scripts available
+
+      npm link > /dev/null
+      [ $? -ne 0 ] && exit 1
+
+      # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+      commit-changes --branch "$TRAVIS_BRANCH" \
+                     --commands 'npm run -s print-test-text > test/commit-changes-with-deploy-key/fixtures/test_files/file.txt' \
+                     --commit-message "Update content [skip ci]";
+
+env:
+  global:
+    - secure: "H+HiCKmoXgkwdCX6H/IUiI191yWnNbv6TLsXmp8ywH/xmMiYyeDpTjEm3F3YdrJMkTrwchVF/CwyAaiI4lZi663RTHjBKYMWW0XYZoT5Lw54xldvMBrimhxNJMCs4iYLecaw36cYHn6BB+P9xk53ufeBg3OP5vc6eaB9T8IE22Y="
+
+language: node_js
+
+node_js:
+  - "5"
+  - "4"
+  - "0.12"
+
+notifications:
+  email: false
+
+sudo: false
