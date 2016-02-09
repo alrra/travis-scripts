@@ -1,5 +1,6 @@
 ### HEAD
 
+* Discontinue executing `travis-after-all` internally.
 * [[`b52ca7552b`](https://github.com/alrra/travis-scripts/commit/b52ca7552bfc6bee8b713fb9a6ae79f94b87068d)] -
   Make scripts also work with `Deploy Keys`.
 

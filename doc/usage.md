@@ -9,7 +9,7 @@ npm install --save-dev @alrra/travis-scripts
 #### 2. Allow access to the repository
 
 * [Setup the SSH keys](github-deploy-keys.md)
-* or [use an access token](github-access-token.md) (not recommended, 
+* or [use an access token](github-access-token.md) (not recommended,
   as it's less secure than the first option)
 
 
@@ -17,8 +17,8 @@ npm install --save-dev @alrra/travis-scripts
 
 * Specify the commands to be run in `.travis.yml`.
 
-  Here’s an example that runs `npm run build` against the `master` 
-  branch whenever Travis CI completes a run, after which the resulting 
+  Here’s an example that runs `npm run build` against the `master`
+  branch whenever Travis CI completes a run, after which the resulting
   `build` directory gets deployed to the `gh-pages` branch:
 
   ```yml
@@ -35,6 +35,30 @@ npm install --save-dev @alrra/travis-scripts
                                  --source-branch "master"
   ```
 
-Note that these scripts use [`travis-after-all`](https://github.com/alrra/travis-after-all#readme)
-to ensure this is only executed once, even when there are multiple jobs
-in the build matrix.         
+#### 4. Handling multiple jobs
+
+If your build has mutiple jobs, you will want these travis scripts
+to be executed only one, and for that you will need to use
+[`travis-after-all`](https://github.com/alrra/travis-after-all#readme).
+
+* Install `travis-after-all` as a `devDependency`
+
+  ```bash
+  npm install --save-dev travis-after-all
+  ```
+
+* Update `.travis.yml` to include the `travis-after-all` execution
+
+  ```yml
+  after_success:
+    -|
+
+       # ...
+
+       $(npm bin)/travis-after-all && \
+         $(npm bin)/update-branch --commands "npm run build"
+                                  --commit-message "Hey GitHub, this content is for you! [skip ci]"
+                                  --directory "build"
+                                  --distribution-branch "gh-pages"
+                                  --source-branch "master"
+  ```

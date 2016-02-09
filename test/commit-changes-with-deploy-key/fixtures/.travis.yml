@@ -17,9 +17,10 @@ after_script:
 
       # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-      commit-changes --branch "$TRAVIS_BRANCH" \
-                     --commands 'npm run -s print-test-text > test/commit-changes-with-deploy-key/fixtures/test_files/file.txt' \
-                     --commit-message "Update content [skip ci]";
+      $(npm bin)/travis-after-all && \
+        commit-changes --branch "$TRAVIS_BRANCH" \
+                       --commands 'npm run -s print-test-text > test/commit-changes-with-deploy-key/fixtures/test_files/file.txt' \
+                       --commit-message "Update content [skip ci]";
 
 env:
   global:

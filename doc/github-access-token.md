@@ -24,7 +24,7 @@ In order for the travis scripts to be able to make commits to
 your repository, the following three environment variables need
 to be provided:
 
- * `GH_TOKEN` - containing the GitHub access token generated at 
+ * `GH_TOKEN` - containing the GitHub access token generated at
    [step `3.`](#3-generate-a-github-access-token)
  * `GH_USER_EMAIL` and `GH_USER_NAME` - containing the [email and user
    name](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup#Your-Identity)
