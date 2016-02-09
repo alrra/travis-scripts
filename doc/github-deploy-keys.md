@@ -98,8 +98,8 @@ travis login
 
   ![](https://cloud.githubusercontent.com/assets/1223565/12903066/89ff92d8-cecd-11e5-970e-2f5a6fb2d230.png)
 
-  Also, this is the reason why you needed login to Travis using the
-  Travis CLI at step 2.4.
+  Also, this is the reason why you needed to login to Travis using the
+  Travis CLI at [step `2.4.`](#24-login-to-travis-using-the-travis-cli).
 
 
 * Remove the file containing the private key so that it's not
