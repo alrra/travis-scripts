@@ -1,3 +1,8 @@
+### HEAD
+
+* [[`b52ca7552b`](https://github.com/alrra/travis-scripts/commit/b52ca7552bfc6bee8b713fb9a6ae79f94b87068d)] -
+  Make scripts also work with `Deploy Keys`.
+
 ### 1.2.2 (January 19, 2016)
 
 * [[`4ee8e07787`](https://github.com/alrra/travis-scripts/commit/4ee8e0778799cc49bc5b2fd46672fef158f09df4)] -
