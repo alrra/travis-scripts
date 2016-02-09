@@ -1,6 +1,7 @@
-### HEAD
+### 2.0.0 (February 9, 2016)
 
-* Discontinue executing `travis-after-all` internally.
+* [[`9e81ebdb77`](https://github.com/alrra/travis-scripts/commit/9e81ebdb773f720023f124e5b8b5ae750708f8ec)] -
+  Discontinue executing `travis-after-all` internally.
 * [[`b52ca7552b`](https://github.com/alrra/travis-scripts/commit/b52ca7552bfc6bee8b713fb9a6ae79f94b87068d)] -
   Make scripts also work with `Deploy Keys`.
 
