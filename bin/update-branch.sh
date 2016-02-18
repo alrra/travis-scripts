@@ -204,19 +204,19 @@ main() {
         repository_url="$(get_repository_url)"
 
         execute "$commands" \
-            2> >(remove_sensitive_information) \
+            &> >(remove_sensitive_information) \
             1> /dev/null
         print_result $? "Update content"
         [ $? -ne 0 ] && exit 1
 
         remove_unneeded_files "$directory" \
-            2> >(remove_sensitive_information) \
+            &> >(remove_sensitive_information) \
             1> /dev/null
         print_result $? "Remove unneeded content"
         [ $? -ne 0 ] && exit 1
 
         commit_and_push_changes "$distributionBranch" "$commitMessage" \
-            2> >(remove_sensitive_information) \
+            &> >(remove_sensitive_information) \
             1> /dev/null
         print_result $? "Commit and push changes"
 

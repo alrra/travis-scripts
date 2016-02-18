@@ -144,13 +144,13 @@ main() {
        [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
         execute "$commands" \
-            2> >(remove_sensitive_information) \
+            &> >(remove_sensitive_information) \
             1> /dev/null
         print_result $? "Update content"
         [ $? -ne 0 ] && exit 1
 
         commit_and_push_changes "$branch" "$commitMessage" \
-            2> >(remove_sensitive_information) \
+            &> >(remove_sensitive_information) \
             1> /dev/null
         print_result $? "Commit and push changes (if necessary)"
 

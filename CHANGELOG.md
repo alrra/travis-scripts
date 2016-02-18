@@ -1,3 +1,7 @@
+### HEAD
+
+* Improve log output.
+
 ### 2.0.0 (February 9, 2016)
 
 * [[`9e81ebdb77`](https://github.com/alrra/travis-scripts/commit/9e81ebdb773f720023f124e5b8b5ae750708f8ec)] -
