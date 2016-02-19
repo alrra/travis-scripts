@@ -19,5 +19,7 @@ openssl aes-256-cbc \
 # Enable SSH authentication
 
 chmod 600 ~/.ssh/$PRIVATE_KEY_FILE_NAME
-echo "Host github.com" >> ~/.ssh/config
-echo "  IdentityFile ~/.ssh/$PRIVATE_KEY_FILE_NAME" >> ~/.ssh/config
+printf '%s\n' \
+    "Host github.com" \
+    "  IdentityFile ~/.ssh/$PRIVATE_KEY_FILE_NAME" \
+    "  LogLevel ERROR" >> ~/.ssh/config
