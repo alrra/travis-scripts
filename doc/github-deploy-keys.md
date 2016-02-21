@@ -65,6 +65,10 @@ travis login
 
 ##### 2.5. Encrypt the file containing the private key
 
+:warning: Because of an [issue with the Travis
+CLI](https://github.com/travis-ci/travis-ci/issues/4746), the following
+**will not work** as intended if done **on Windows**!
+
 * Use the Travis CLI to encrypt the file containing the private SSL key
 
   ```bash
@@ -74,7 +78,7 @@ travis login
   The above will output something like:
 
   ```bash
-  encrypting github_deploy_key for alrra/travis-scripts
+  encrypting github_deploy_key for <username>/<repository>
   storing result as github_deploy_key.enc
   storing secure env variables for decryption
 
