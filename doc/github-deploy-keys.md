@@ -1,3 +1,5 @@
+# Setup the SSH keys
+
 #### 1. Enable Travis CI
 
 If you haven't, [enable Travis CI for your
@@ -187,3 +189,11 @@ env:
   global:
     - secure: "<secure_key_value>"
 ```
+
+--
+
+<div align="center">
+    <a href="install.md">← previous step</a> |
+    <a href="contents.md">table of contents</a> |
+    <a href="usage.md">next step →</a>
+</div>

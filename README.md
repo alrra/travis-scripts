@@ -6,7 +6,7 @@
 
 ## Usage
 
-See [documentation](doc/usage.md).
+See [documentation](doc/contents.md).
 
 
 ## License
