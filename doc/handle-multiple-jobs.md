@@ -4,13 +4,13 @@ If your build has mutiple jobs, you will want these travis scripts
 to be executed only one, and for that you will need to use
 [`travis-after-all`](https://github.com/alrra/travis-after-all#readme).
 
-* Install `travis-after-all` as a `devDependency`
+ 1. Install `travis-after-all` as a `devDependency`
 
   ```bash
   npm install --save-dev travis-after-all
   ```
 
-* Update `.travis.yml` to include the `travis-after-all` execution
+ 2. Update `.travis.yml` to include the `travis-after-all` execution
 
   ```yml
   after_success:
