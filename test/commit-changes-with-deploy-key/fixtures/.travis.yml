@@ -5,7 +5,7 @@
 after_script:
   - |
 
-      ./scripts/travis/enable_ssh_authentication.sh
+      .travis/enable_ssh_authentication.sh
       [ $? -ne 0 ] && exit 1
 
       # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
