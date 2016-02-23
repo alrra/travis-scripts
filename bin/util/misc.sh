@@ -19,7 +19,7 @@ get_repository_url() {
 }
 
 print() {
-    printf "%b%s%b\n" \
+    printf '%b%s%b\n' \
         "$1" \
         "${2//$'\r'//}" \
         "\e[0m"
@@ -29,12 +29,18 @@ print_error() {
     print_in_red "$LOG_PREFIX [✖] $1"
 }
 
+print_error_stream() {
+    while read -r line; do
+        print_in_red "$LOG_PREFIX [✖] $line"
+    done
+}
+
 print_in_green() {
-    print "\e[0;32m" "$1"
+    print '\e[0;32m' "$1"
 }
 
 print_in_red() {
-    print "\e[0;31m" "$1"
+    print '\e[0;31m' "$1"
 }
 
 print_result() {
@@ -55,11 +61,11 @@ remove_sensitive_information() {
 
     while read -r line; do
 
-        line="${line//${GH_TOKEN}/$CENSURE_TEST}"
-        line="${line//${GH_USER_EMAIL}/$CENSURE_TEST}"
-        line="${line//${GH_USER_NAME}/$CENSURE_TEST}"
+        for text in "$@"; do
+            line="${line//${text}/$CENSURE_TEST}"
+        done
 
-        print_error "$line"
+        printf '%s\n' "$line"
 
     done
 

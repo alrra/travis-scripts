@@ -204,24 +204,25 @@ main() {
         repository_url="$(get_repository_url)"
 
         execute "$commands" \
-            &> >(remove_sensitive_information) \
+            &> >( print_error_stream ) \
             1> /dev/null
-        print_result $? "Update content"
+        print_result $? 'Update content'
         [ $? -ne 0 ] && exit 1
 
         remove_unneeded_files "$directory" \
-            &> >(remove_sensitive_information) \
+            &> >( print_error_stream ) \
             1> /dev/null
-        print_result $? "Remove unneeded content"
+        print_result $? 'Remove unneeded content'
         [ $? -ne 0 ] && exit 1
 
         commit_and_push_changes "$distributionBranch" "$commitMessage" \
-            &> >(remove_sensitive_information) \
+            &> >( print_error_stream ) \
             1> /dev/null
-        print_result $? "Commit and push changes"
+        print_result $? 'Commit and push changes'
 
     fi
 
 }
 
-main "$@"
+main "$@" \
+    &> >( remove_sensitive_information "$GH_TOKEN" "$GH_USER_EMAIL" "$GH_USER_NAME" )

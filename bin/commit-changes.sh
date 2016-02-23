@@ -22,7 +22,7 @@ commit_and_push_changes() {
     # Check if there are unstaged changes, and
     # if there are, commit and push them upstream
 
-    if [ "$(git status --porcelain)" != "" ]; then
+    if [ "$(git status --porcelain)" != '' ]; then
         git config --global user.email "$GH_USER_EMAIL" \
             && git config --global user.name "$GH_USER_NAME" \
             && git checkout --quiet "$1" \
@@ -144,18 +144,19 @@ main() {
        [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
         execute "$commands" \
-            &> >(remove_sensitive_information) \
+            &> >( print_error_stream ) \
             1> /dev/null
-        print_result $? "Update content"
+        print_result $? 'Update content'
         [ $? -ne 0 ] && exit 1
 
         commit_and_push_changes "$branch" "$commitMessage" \
-            &> >(remove_sensitive_information) \
+            &> >( print_error_stream ) \
             1> /dev/null
-        print_result $? "Commit and push changes (if necessary)"
+        print_result $? 'Commit and push changes (if necessary)'
 
     fi
 
 }
 
-main "$@"
+main "$@" \
+    &> >( remove_sensitive_information "$GH_TOKEN" "$GH_USER_EMAIL" "$GH_USER_NAME" )
