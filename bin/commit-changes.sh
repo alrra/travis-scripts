@@ -144,13 +144,13 @@ main() {
        [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
         execute "$commands" \
-            &> >( print_error_stream ) \
+            &> >(print_error_stream) \
             1> /dev/null
-        print_result $? 'Update content'
-        [ $? -ne 0 ] && exit 1
+        print_result $? 'Update content' \
+            || exit 1
 
         commit_and_push_changes "$branch" "$commitMessage" \
-            &> >( print_error_stream ) \
+            &> >(print_error_stream) \
             1> /dev/null
         print_result $? 'Commit and push changes (if necessary)'
 
@@ -159,4 +159,4 @@ main() {
 }
 
 main "$@" \
-    &> >( remove_sensitive_information "$GH_TOKEN" "$GH_USER_EMAIL" "$GH_USER_NAME" )
+    &> >(remove_sensitive_information "$GH_TOKEN" "$GH_USER_EMAIL" "$GH_USER_NAME")
