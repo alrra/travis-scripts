@@ -24,6 +24,6 @@ after_success:
 
 <div align="center">
     <a href="github-deploy-keys.md">← previous step</a> |
-    <a href="contents.md">table of contents</a> |
+    <a href="../README.md#usage">table of contents</a> |
     <a href="handle-multiple-jobs.md">next step →</a>
 </div>

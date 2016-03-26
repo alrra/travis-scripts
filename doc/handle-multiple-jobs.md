@@ -30,5 +30,5 @@ to be executed only one, and for that you will need to use
 
 <div align="center">
     <a href="usage.md">← previous step</a> |
-    <a href="contents.md">table of contents</a>
+    <a href="../README.md#usage">table of contents</a>
 </div>

@@ -69,6 +69,6 @@ env:
 
 <div align="center">
     <a href="install.md">← previous step</a> |
-    <a href="contents.md">table of contents</a> |
+    <a href="../README.md#usage">table of contents</a> |
     <a href="usage.md">next step →</a>
 </div>
