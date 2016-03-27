@@ -1,5 +1,6 @@
 ### HEAD
 
+* Add `set-up-ssh` helper script.
 * Improve log output.
 
 ### 2.0.0 (February 9, 2016)
