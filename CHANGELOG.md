@@ -1,4 +1,4 @@
-### HEAD
+### 2.1.0 (March 28, 2016)
 
 * [[`8dca462a35`](https://github.com/alrra/travis-scripts/commit/8dca462a3501060b7d75d3f91dc425a9f51dc693)] -
   Add `set-up-ssh` helper script
