@@ -1,7 +1,12 @@
 ### HEAD
 
-* Add `set-up-ssh` helper script.
-* Improve log output.
+* [[`8dca462a35`](https://github.com/alrra/travis-scripts/commit/8dca462a3501060b7d75d3f91dc425a9f51dc693)] -
+  Add `set-up-ssh` helper script
+  (see also: [`#19`](https://github.com/alrra/travis-scripts/issues/19)).
+* [[`850318d739`](https://github.com/alrra/travis-scripts/commit/850318d7399b2813946e31bd9501489285284515)] -
+  Improve log output 
+  (see also: [`a62dbcdacf`](https://github.com/alrra/travis-scripts/commit/a62dbcdacfc5ee39ce4077ed43b9a911760cc6b8)).
+* Make various documentation related improvements.
 
 ### 2.0.0 (February 9, 2016)
 
