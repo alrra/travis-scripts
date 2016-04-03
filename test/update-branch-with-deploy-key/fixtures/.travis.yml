@@ -13,8 +13,8 @@ after_script:
       # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
       $(npm bin)/travis-after-all && \
-        set-up-ssh -k "$encrypted_18a7d42f6a87_key" \
-                   -iv "$encrypted_18a7d42f6a87_iv" \
+        set-up-ssh --key "$encrypted_18a7d42f6a87_key" \
+                   --iv "$encrypted_18a7d42f6a87_iv" \
                    --path-encrypted-key ".travis/github_deploy_key.enc" && \
         update-branch --commands 'npm run -s print-test-text > test/update-branch-with-deploy-key/fixtures/test_files/file.txt' \
                       --commit-message "Update branch content [skip ci]" \

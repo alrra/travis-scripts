@@ -1,3 +1,8 @@
+### HEAD
+
+* Use a single-character for the short command-line options
+  (see also : [`#23`](https://github.com/alrra/travis-scripts/issues/23)).
+
 ### 2.1.0 (March 28, 2016)
 
 * [[`8dca462a35`](https://github.com/alrra/travis-scripts/commit/8dca462a3501060b7d75d3f91dc425a9f51dc693)] -

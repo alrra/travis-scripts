@@ -130,8 +130,8 @@ Add the necessary commands to the `.travis.yml` file, and either:
   after_success:
     - |
 
-         $(npm bin)/set-up-ssh -k "$encrypted_XXXXXXXXXXXX_key" \
-                               -iv "$encrypted_XXXXXXXXXXXX_iv" \
+         $(npm bin)/set-up-ssh --key "$encrypted_XXXXXXXXXXXX_key" \
+                               --iv "$encrypted_XXXXXXXXXXXX_iv" \
                                --path-encrypted-key ".travis/github_deploy_key.enc"
   ```
 

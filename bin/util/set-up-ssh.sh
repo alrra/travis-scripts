@@ -38,15 +38,15 @@ print_help_message() {
     printf 'OPTIONS:'
     printf '\n'
     printf '\n'
-    printf ' -ek, --path-encrypted-key <path>\n'
+    printf ' -p, --path-encrypted-key <path>\n'
     printf '\n'
     printf '     Specifies the location of the encrypted private key file relative to where the script is executed from\n'
     printf '\n'
-    printf ' -k <message>\n'
+    printf ' -k, --key <key_value>\n'
     printf '\n'
     printf '     Specifies the key value stored in the `encrypted_XXXXXXXXXXXX_key` envirorment variable\n'
     printf '\n'
-    printf ' -iv <message>\n'
+    printf ' -i, --iv <iv_value>\n'
     printf '\n'
     printf '     Specifies the IV value stored in the `encrypted_XXXXXXXXXXXX_iv` envirorment variable\n'
     printf '\n'
@@ -73,42 +73,42 @@ main() {
                 exit
             ;;
 
-            -ek|--path-encrypted-key)
-                if [ -n "$2" ]; then
-                    pathEncryptedKey="$2"
-                    shift 2
-                    continue
-                else
-                    print_error 'ERROR: A non-empty "-ek/--path-encrypted-key <path>" argument needs to be specified'
-                    exit 1
-                fi
-            ;;
-
-            -k)
-                if [ -n "$2" ]; then
-                    key="$2"
-                    shift 2
-                    continue
-                else
-                    print_error 'ERROR: A non-empty "-k <key_value>" argument needs to be specified'
-                    exit 1
-                fi
-            ;;
-
-            -iv)
+            -i|--iv)
                 if [ -n "$2" ]; then
                     iv="$2"
                     shift 2
                     continue
 
                 else
-                    print_error 'ERROR: A non-empty "-iv <iv_value>" argument needs to be specified'
+                    print_error 'ERROR: A non-empty "-i/--iv <iv_value>" argument needs to be specified'
                     exit 1
                 fi
             ;;
 
-           -?*) printf 'WARNING: Unknown option (ignored): %s\n' "$1" >&2;;
-             *) break
+            -k|--key)
+                if [ -n "$2" ]; then
+                    key="$2"
+                    shift 2
+                    continue
+                else
+                    print_error 'ERROR: A non-empty "-k/--key <key_value>" argument needs to be specified'
+                    exit 1
+                fi
+            ;;
+
+            -p|--path-encrypted-key)
+                if [ -n "$2" ]; then
+                    pathEncryptedKey="$2"
+                    shift 2
+                    continue
+                else
+                    print_error 'ERROR: A non-empty "-p/--path-encrypted-key <path>" argument needs to be specified'
+                    exit 1
+                fi
+            ;;
+
+            -?*) printf 'WARNING: Unknown option (ignored): %s\n' "$1" >&2;;
+              *) break
         esac
 
         shift
@@ -118,18 +118,18 @@ main() {
 
     # Check if all the required options are provided
 
-    if [ -z "$pathEncryptedKey" ]; then
-        print_error 'ERROR: option "-ek/--path-encrypted-key <path>" not given (see --help).'
+    if [ -z "$iv" ]; then
+        print_error 'ERROR: option "-i/--iv <iv_value>" not given (see --help).'
         allOptionsAreProvided='false'
     fi
 
     if [ -z "$key" ]; then
-        print_error 'ERROR: option "-k <key_value>" not given (see --help)'
+        print_error 'ERROR: option "-k/--key <key_value>" not given (see --help)'
         allOptionsAreProvided='false'
     fi
 
-    if [ -z "$iv" ]; then
-        print_error 'ERROR: option "-iv <iv_value>" not given (see --help).'
+    if [ -z "$pathEncryptedKey" ]; then
+        print_error 'ERROR: option "-p/--path-encrypted-key <path>" not given (see --help).'
         allOptionsAreProvided='false'
     fi
 

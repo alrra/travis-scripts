@@ -47,7 +47,7 @@ print_help_message() {
     printf '\n'
     printf '     Specifies the name of the distribution/build directory\n'
     printf '\n'
-    printf ' -db, --distribution-branch <branch_name>\n'
+    printf ' --distribution-branch <branch_name>\n'
     printf '\n'
     printf '     Specifies the name of the branch that will contain the content of the site\n'
     printf '\n'
@@ -55,7 +55,7 @@ print_help_message() {
     printf '\n'
     printf '     Specifies the commit message\n'
     printf '\n'
-    printf ' -sb, --source-branch <branch_name>\n'
+    printf ' --source-branch <branch_name>\n'
     printf '\n'
     printf '     Specifies the name of the branch that contains the source code\n'
     printf '\n'
@@ -121,7 +121,7 @@ main() {
                 fi
             ;;
 
-            -db|--distribution-branch)
+            --distribution-branch)
                 if [ "$2" ]; then
                     distributionBranch="$2"
                     shift 2
@@ -143,7 +143,7 @@ main() {
                 fi
             ;;
 
-            -sb|--source-branch)
+            --source-branch)
                 if [ "$2" ]; then
                     sourceBranch="$2"
                     shift 2
@@ -181,12 +181,12 @@ main() {
     fi
 
     if [ -z "$distributionBranch" ]; then
-        print_error 'ERROR: option "-db/--distribution-branch <branch_name>" not given (see --help).'
+        print_error 'ERROR: option "--distribution-branch <branch_name>" not given (see --help).'
         allOptionsAreProvided='false'
     fi
 
     if [ -z "$sourceBranch" ]; then
-        print_error 'ERROR: option "-sb/--source-branch <branch_name>" not given (see --help).'
+        print_error 'ERROR: option "--source-branch <branch_name>" not given (see --help).'
         allOptionsAreProvided='false'
     fi
 
