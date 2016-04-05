@@ -1,7 +1,8 @@
 ### HEAD
 
-* Use a single-character for the short command-line options
-  (see also : [`#23`](https://github.com/alrra/travis-scripts/issues/23)).
+* [[`bbd18ad347`](https://github.com/alrra/travis-scripts/commit/bbd18ad34747299aacaa178a9ef8ff50c8f6c629)] -
+  Use a single-character for the short command-line options
+  (see also: [`#23`](https://github.com/alrra/travis-scripts/issues/23)).
 
 ### 2.1.0 (March 28, 2016)
 
@@ -34,7 +35,7 @@
 
 * [[`bbf3350b4e`](https://github.com/alrra/travis-scripts/commit/bbf3350b4edb8ac2eac0e443a24fef9f63c7d586)] -
   Add usage instructions in `README.md`
-  (see also : [`#17`](https://github.com/alrra/travis-scripts/issues/17)).
+  (see also: [`#17`](https://github.com/alrra/travis-scripts/issues/17)).
 * [[`932c35b236`](https://github.com/alrra/travis-scripts/commit/932c35b2364ebda17c65f6e358a41d41334598c0)] -
   Make minor improvements to the scripts.
 
