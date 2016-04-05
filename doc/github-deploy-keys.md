@@ -1,4 +1,4 @@
-# Setup the SSH keys
+# Set up the SSH keys
 
 #### 1. Enable Travis CI
 
@@ -9,7 +9,7 @@ and flicking the repository switch on.
 
 ![](https://cloud.githubusercontent.com/assets/1223565/12536703/4f9161ae-c2b5-11e5-904c-e11f561e8b6f.gif)
 
-#### 2. Setup the SSH keys
+#### 2. Set up the SSH keys
 
 ##### 2.1. Generate the SSH keys
 

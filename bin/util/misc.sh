@@ -57,12 +57,12 @@ print_success() {
 
 remove_sensitive_information() {
 
-    declare -r CENSURE_TEST='[secure]';
+    declare -r CENSOR_TEXT='[secure]';
 
     while read -r line; do
 
         for text in "$@"; do
-            line="${line//${text}/$CENSURE_TEST}"
+            line="${line//${text}/$CENSOR_TEXT}"
         done
 
         printf '%s\n' "$line"

@@ -1,7 +1,7 @@
 ### HEAD
 
 * [[`bbd18ad347`](https://github.com/alrra/travis-scripts/commit/bbd18ad34747299aacaa178a9ef8ff50c8f6c629)] -
-  Use a single-character for the short command-line options
+  Use a single character for the short command-line options
   (see also: [`#23`](https://github.com/alrra/travis-scripts/issues/23)).
 
 ### 2.1.0 (March 28, 2016)

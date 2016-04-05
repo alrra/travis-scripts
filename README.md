@@ -8,7 +8,7 @@
 
 * [Install](doc/install.md)
 * Allow access to the repository
-  * [Setup the SSH keys](doc/github-deploy-keys.md)
+  * [Set up the SSH keys](doc/github-deploy-keys.md)
   * or [use an access token](doc/github-access-token.md)
     (not recommended, as it's less secure)
 * [Usage](doc/usage.md)

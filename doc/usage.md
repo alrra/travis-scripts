@@ -10,7 +10,7 @@ branch whenever Travis CI completes a run, after which the resulting
 after_success:
 -|
 
-    # If deploy keys are used, add here the SSH commands, see:
+    # If deploy keys are used, add the SSH commands here, see:
     # https://github.com/alrra/travis-scripts/tree/master/doc/github-deploy-keys.md#26-setup-the-ssh-key-for-travis-ci
 
     $(npm bin)/update-branch --commands "npm run build"

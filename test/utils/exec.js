@@ -6,11 +6,11 @@ import repository from './repository';
 
 const sanitizeText = (text) => {
 
-    const CENSURE_TEST = '[secure]';
+    const CENSOR_TEXT = '[secure]';
 
-    return `${text}`.replace(RegExp(`${repository.user.TOKEN}`, 'g'), CENSURE_TEST)
-                    .replace(RegExp(`${repository.user.NAME}`, 'g'), CENSURE_TEST)
-                    .replace(RegExp(`${repository.user.EMAIL}`, 'g'), CENSURE_TEST);
+    return text.replace(RegExp(repository.user.TOKEN, 'g'), CENSOR_TEXT)
+               .replace(RegExp(repository.user.NAME, 'g'), CENSOR_TEXT)
+               .replace(RegExp(repository.user.EMAIL, 'g'), CENSOR_TEXT);
 
 };
 
