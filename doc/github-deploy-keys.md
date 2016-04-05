@@ -176,7 +176,8 @@ The travis scrips will use the values of the `GH_USER_EMAIL` and
 name](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup#Your-Identity)
 with which the commits will be made.
 
-I personally don't recommend [specifying their values directly](https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-.travis.yml)
+I personally don't recommend [specifying their values
+directly](https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-.travis.yml)
 as that would mean they will be public. Instead, you should encrypt
 them by generating a secure key using the Travis CLI:
 

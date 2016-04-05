@@ -1,7 +1,7 @@
 # Handle multiple jobs
 
-If your build has mutiple jobs, you will want these travis scripts
-to be executed only one, and for that you will need to use
+If your build has multiple jobs, you will want these travis scripts
+to be executed only once, and for that you will need to use
 [`travis-after-all`](https://github.com/alrra/travis-after-all#readme).
 
  1. Install `travis-after-all` as a `devDependency`

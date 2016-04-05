@@ -3,8 +3,9 @@
 Specify the commands to be run in `.travis.yml`.
 
 Here’s an example that runs `npm run build` against the `master`
-branch whenever Travis CI completes a run, after which the resulting
-`build` directory gets deployed to the `gh-pages` branch:
+branch whenever Travis CI completes a run, after which, the content
+from the resulting `dist` directory gets pushed to the `gh-pages`
+branch:
 
 ```yml
 after_success:
@@ -15,7 +16,7 @@ after_success:
 
     $(npm bin)/update-branch --commands "npm run build"
                              --commit-message "Hey GitHub, this content is for you! [skip ci]"
-                             --directory "build"
+                             --directory "dist"
                              --distribution-branch "gh-pages"
                              --source-branch "master"
 ```
