@@ -7,10 +7,7 @@
 ## Usage
 
 * [Install](doc/install.md)
-* Allow access to the repository
-  * [Set up the SSH keys](doc/github-deploy-keys.md)
-  * or [use an access token](doc/github-access-token.md)
-    (not recommended, as it's less secure)
+* [Allow access to the repository by setting up the SSH keys](doc/github-deploy-keys.md)
 * [Usage](doc/usage.md)
 * [Handle multiple jobs](doc/handle-multiple-jobs.md)
 

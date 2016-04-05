@@ -8,8 +8,7 @@ const sanitizeText = (text) => {
 
     const CENSOR_TEXT = '[secure]';
 
-    return text.replace(RegExp(repository.user.TOKEN, 'g'), CENSOR_TEXT)
-               .replace(RegExp(repository.user.NAME, 'g'), CENSOR_TEXT)
+    return text.replace(RegExp(repository.user.NAME, 'g'), CENSOR_TEXT)
                .replace(RegExp(repository.user.EMAIL, 'g'), CENSOR_TEXT);
 
 };

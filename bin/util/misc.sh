@@ -9,13 +9,7 @@ execute() {
 }
 
 get_repository_url() {
-
-    if [ -z "$GH_TOKEN" ]; then
-        printf "git@github.com:$TRAVIS_REPO_SLUG.git"
-    else
-        printf "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
-    fi
-
+    printf "git@github.com:$TRAVIS_REPO_SLUG.git"
 }
 
 print() {

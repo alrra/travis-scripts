@@ -7,9 +7,6 @@ import * as travis from './utils/travis';
 import testCommitChangesScriptUsingDeployKeys from './commit-changes-with-deploy-key/tests';
 import testUpdateBranchScriptUsingDeployKeys from './update-branch-with-deploy-key/tests';
 
-import testCommitChangesScriptUsingToken from './commit-changes-with-token/tests';
-import testUpdateBranchScriptUsingToken from './update-branch-with-token/tests';
-
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 const isTestBranch = () =>
@@ -45,9 +42,6 @@ const main = async () => {
         tap.pass('Job passed');
     } else {
         tap.test('Tests', (t) => {
-
-            testCommitChangesScriptUsingToken(t);
-            testUpdateBranchScriptUsingToken(t);
 
             testCommitChangesScriptUsingDeployKeys(t);
             testUpdateBranchScriptUsingDeployKeys(t);

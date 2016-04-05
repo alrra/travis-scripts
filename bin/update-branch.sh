@@ -225,4 +225,4 @@ main() {
 }
 
 main "$@" \
-    &> >(remove_sensitive_information "$GH_TOKEN" "$GH_USER_EMAIL" "$GH_USER_NAME")
+    &> >(remove_sensitive_information "$GH_USER_EMAIL" "$GH_USER_NAME")
