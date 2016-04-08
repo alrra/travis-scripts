@@ -29,7 +29,16 @@ commit_and_push_changes() {
         && git init \
         && git add -A \
         && git commit --message "$2" \
-        && git checkout --quiet -b "$1" \
+        && (
+
+            # If the distribution branch is `master`,
+            # there is no need to switch as that is default
+
+            if [ "$1" != "master" ]; then
+                git checkout --quiet -b "$1"
+            fi
+
+        ) \
         && git push --quiet --force "$repository_url" "$1"
 
 }
