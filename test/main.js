@@ -4,8 +4,8 @@ import pkg from './../package.json';
 
 import * as travis from './utils/travis';
 
-import testCommitChangesScriptUsingDeployKeys from './commit-changes-with-deploy-key/tests';
-import testUpdateBranchScriptUsingDeployKeys from './update-branch-with-deploy-key/tests';
+import testCommitChangesScript from './commit-changes/tests';
+import testUpdateBranchScript from './update-branch/tests';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -43,8 +43,8 @@ const main = async () => {
     } else {
         tap.test('Tests', (t) => {
 
-            testCommitChangesScriptUsingDeployKeys(t);
-            testUpdateBranchScriptUsingDeployKeys(t);
+            testCommitChangesScript(t);
+            testUpdateBranchScript(t);
 
             t.end();
 

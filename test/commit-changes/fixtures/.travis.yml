@@ -16,11 +16,9 @@ after_script:
         set-up-ssh --key "$encrypted_18a7d42f6a87_key" \
                    --iv "$encrypted_18a7d42f6a87_iv" \
                    --path-encrypted-key ".travis/github_deploy_key.enc" && \
-        update-branch --commands 'npm run -s print-test-text > test/update-branch-with-deploy-key/fixtures/test_files/file.txt' \
-                      --commit-message "Update branch content [skip ci]" \
-                      --directory "test/update-branch-with-deploy-key/fixtures/test_files" \
-                      --distribution-branch "${TRAVIS_BRANCH}-dist" \
-                      --source-branch "$TRAVIS_BRANCH";
+        commit-changes --branch "$TRAVIS_BRANCH" \
+                       --commands 'npm run -s print-test-text > test/commit-changes/fixtures/test_files/file.txt' \
+                       --commit-message "Update content [skip ci]";
 
 env:
   global:
