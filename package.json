@@ -43,7 +43,7 @@
   "repository": "alrra/travis-scripts",
   "scripts": {
     "print-test-text": "printf \"%s\" \"$npm_package_config_test_text\"",
-    "pretest": "npm link && set-up-ssh --key \"$encrypted_18a7d42f6a87_key\" --iv \"$encrypted_18a7d42f6a87_iv\" --path-encrypted-key \".travis/github_deploy_key.enc\" && rm -rf dist_test && babel test --out-dir dist_test",
+    "pretest": "[ \"$TRAVIS_PULL_REQUEST\" = \"false\" ] && npm link && set-up-ssh --key \"$encrypted_18a7d42f6a87_key\" --iv \"$encrypted_18a7d42f6a87_iv\" --path-encrypted-key \".travis/github_deploy_key.enc\" && rm -rf dist_test && babel test --out-dir dist_test",
     "test": "node dist_test/main.js | tap-mocha-reporter spec"
   },
   "version": "2.1.0"
