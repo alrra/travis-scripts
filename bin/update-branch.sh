@@ -32,7 +32,7 @@ commit_and_push_changes() {
         && (
 
             # If the distribution branch is `master`,
-            # there is no need to switch as that is default
+            # there is no need to switch as that is the default
 
             if [ "$1" != "master" ]; then
                 git checkout --quiet -b "$1"
