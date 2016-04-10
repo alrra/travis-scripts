@@ -1,7 +1,11 @@
 ### HEAD
 
-* Change `update-branch.sh` to allow `master` as the distribution branch.
-* Remove support for GitHub access tokens.
+* [[`197c1a78e7`](https://github.com/alrra/travis-scripts/commit/197c1a78e78306fd7ce735ecb989a0833a3b9700)] -
+  Change `update-branch.sh` to allow `master` as the distribution branch
+  (see also: [`#22`](https://github.com/alrra/travis-scripts/issues/22)).
+* [[`dab509dcbd`](https://github.com/alrra/travis-scripts/commit/dab509dcbdc10434e4ea1c8d360c9e365a926514)] -
+  Remove support for GitHub access tokens
+  (see also: [`#25`](https://github.com/alrra/travis-scripts/issues/25)).
 * [[`bbd18ad347`](https://github.com/alrra/travis-scripts/commit/bbd18ad34747299aacaa178a9ef8ff50c8f6c629)] -
   Use a single character for the short command-line options
   (see also: [`#23`](https://github.com/alrra/travis-scripts/issues/23)).
