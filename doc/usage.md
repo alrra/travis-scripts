@@ -11,7 +11,7 @@ branch:
 after_success:
 -|
 
-    # If deploy keys are used, add the SSH commands here, see:
+    # Add the SSH-related commands here, see:
     # https://github.com/alrra/travis-scripts/blob/master/doc/github-deploy-keys.md#26-set-up-ssh-connection-for-travis-ci
 
     $(npm bin)/update-branch --commands "npm run build"
