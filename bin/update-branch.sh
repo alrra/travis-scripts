@@ -44,30 +44,37 @@ commit_and_push_changes() {
 }
 
 print_help_message() {
-    printf '\n'
-    printf 'OPTIONS:'
-    printf '\n'
-    printf '\n'
-    printf ' -c, --commands <commands>\n'
-    printf '\n'
-    printf '     Specifies the commands that will be executed before everything else in order to update the content\n'
-    printf '\n'
-    printf ' -d, --directory <directory>\n'
-    printf '\n'
-    printf '     Specifies the name of the distribution/build directory\n'
-    printf '\n'
-    printf ' --distribution-branch <branch_name>\n'
-    printf '\n'
-    printf '     Specifies the name of the branch that will contain the content of the site\n'
-    printf '\n'
-    printf ' -m, --commit-message <message>\n'
-    printf '\n'
-    printf '     Specifies the commit message\n'
-    printf '\n'
-    printf ' --source-branch <branch_name>\n'
-    printf '\n'
-    printf '     Specifies the name of the branch that contains the source code\n'
-    printf '\n'
+
+    cat <<EOF
+
+OPTIONS:
+
+    -c, --commands <commands>
+
+        Specifies the commands that will be executed before everything else.
+
+
+    -d, --directory <directory>
+
+        Specifies the name of the distribution/build directory.
+
+
+    --distribution-branch <branch_name>
+
+        Specifies the name of the branch on which the content resulting from running the commands will be moved on.
+
+
+    -m, --commit-message <message>
+
+        Specifies the commit message.
+
+
+    --source-branch <branch_name>
+
+        Specifies the name of the branch on which the commands are run on.
+
+EOF
+
 }
 
 remove_unneeded_files() {

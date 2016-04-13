@@ -34,22 +34,27 @@ decrypt_private_ssh_key() {
 }
 
 print_help_message() {
-    printf '\n'
-    printf 'OPTIONS:'
-    printf '\n'
-    printf '\n'
-    printf ' -p, --path-encrypted-key <path>\n'
-    printf '\n'
-    printf '     Specifies the location of the encrypted private key file relative to where the script is executed from\n'
-    printf '\n'
-    printf ' -k, --key <key_value>\n'
-    printf '\n'
-    printf '     Specifies the key value stored in the `encrypted_XXXXXXXXXXXX_key` envirorment variable\n'
-    printf '\n'
-    printf ' -i, --iv <iv_value>\n'
-    printf '\n'
-    printf '     Specifies the IV value stored in the `encrypted_XXXXXXXXXXXX_iv` envirorment variable\n'
-    printf '\n'
+
+    cat <<EOF
+
+OPTIONS:
+
+    -k, --key <key_value>
+
+        Specifies the value of the key stored in the `encrypted_XXXXXXXXXXXX_key` envirorment variable.
+
+
+    -i, --iv <iv_value>
+
+        Specifies the value of the IV stored in the `encrypted_XXXXXXXXXXXX_iv` envirorment variable.
+
+
+    -p, --path-encrypted-key <path>
+
+        Specifies the location of the encrypted private key file relative to where the script is executed from.
+
+EOF
+
 }
 
 # ----------------------------------------------------------------------

@@ -53,7 +53,7 @@ remove_sensitive_information() {
 
     declare -r CENSOR_TEXT='[secure]';
 
-    while read -r line; do
+    while IFS="" read -r line; do
 
         for text in "$@"; do
             line="${line//${text}/$CENSOR_TEXT}"

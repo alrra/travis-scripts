@@ -34,22 +34,27 @@ commit_and_push_changes() {
 }
 
 print_help_message() {
-    printf '\n'
-    printf 'OPTIONS:'
-    printf '\n'
-    printf '\n'
-    printf ' -b, --branch <branch_name>\n'
-    printf '\n'
-    printf '     Specifies the commands that will be executed before everything else in order to update the content\n'
-    printf '\n'
-    printf ' -c, --commands <commands>\n'
-    printf '\n'
-    printf '     Specifies the commands that will be executed before everything else\n'
-    printf '\n'
-    printf ' -m, --commit-message <message>\n'
-    printf '\n'
-    printf '     Specifies the commit message\n'
-    printf '\n'
+
+    cat <<EOF
+
+OPTIONS:
+
+    -b, --branch <branch_name>
+
+        Specifies the name of the branch on which the changes are made.
+
+
+    -c, --commands <commands>
+
+        Specifies the commands that will be executed before everything else.
+
+
+    -m, --commit-message <message>
+
+        Specifies the commit message.
+
+EOF
+
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
