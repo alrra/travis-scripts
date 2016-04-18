@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -r LOG_PREFIX='[travis-scripts]'
+declare -r LOG_PREFIX="[travis-scripts → $(basename "$0")]"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
