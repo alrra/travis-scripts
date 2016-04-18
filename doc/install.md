@@ -6,6 +6,9 @@ Install `travis-scripts` as a `devDependency`:
 npm install --save-dev @alrra/travis-scripts
 ```
 
+:warning: You will need a version of `npm` greater than `2.7.0` 
+in order for the above to work!
+
 --
 
 <div align="center">
