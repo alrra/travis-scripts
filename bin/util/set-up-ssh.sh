@@ -19,7 +19,7 @@ source "$(
 
 add_ssh_configs() {
     chmod 600 "$1" \
-        && printf '%s\n' \
+        && printf "%s\n" \
             "Host github.com" \
             "  IdentityFile $1" \
             "  LogLevel ERROR" >> ~/.ssh/config
@@ -61,12 +61,10 @@ EOF
 
 main() {
 
-    local iv=''
-    local key=''
-    local pathEncryptedKey=''
-    local sshFileName=''
-
-    local allOptionsAreProvided='true'
+    local iv=""
+    local key=""
+    local pathEncryptedKey=""
+    local sshFileName=""
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -85,7 +83,7 @@ main() {
                     continue
 
                 else
-                    print_error 'ERROR: A non-empty "-i/--iv <iv_value>" argument needs to be specified'
+                    print_error "ERROR: A non-empty \"-i/--iv <iv_value>\" argument needs to be specified"
                     exit 1
                 fi
             ;;
@@ -96,7 +94,7 @@ main() {
                     shift 2
                     continue
                 else
-                    print_error 'ERROR: A non-empty "-k/--key <key_value>" argument needs to be specified'
+                    print_error "ERROR: A non-empty \"-k/--key <key_value>\" argument needs to be specified"
                     exit 1
                 fi
             ;;
@@ -107,12 +105,12 @@ main() {
                     shift 2
                     continue
                 else
-                    print_error 'ERROR: A non-empty "-p/--path-encrypted-key <path>" argument needs to be specified'
+                    print_error "ERROR: A non-empty \"-p/--path-encrypted-key <path>\" argument needs to be specified"
                     exit 1
                 fi
             ;;
 
-            -?*) printf 'WARNING: Unknown option (ignored): %s\n' "$1" >&2;;
+            -?*) printf "WARNING: Unknown option (ignored): %s\n" "$1" >&2;;
               *) break
         esac
 
@@ -123,23 +121,10 @@ main() {
 
     # Check if all the required options are provided
 
-    if [ -z "$iv" ]; then
-        print_error 'ERROR: option "-i/--iv <iv_value>" not given (see --help).'
-        allOptionsAreProvided='false'
-    fi
-
-    if [ -z "$key" ]; then
-        print_error 'ERROR: option "-k/--key <key_value>" not given (see --help)'
-        allOptionsAreProvided='false'
-    fi
-
-    if [ -z "$pathEncryptedKey" ]; then
-        print_error 'ERROR: option "-p/--path-encrypted-key <path>" not given (see --help).'
-        allOptionsAreProvided='false'
-    fi
-
-    [ "$allOptionsAreProvided" == 'false' ] \
-        && exit 1
+    check_if_arg_is_provided "$iv" "-i/--iv <iv_value>" \
+        && check_if_arg_is_provided "$key" "-k/--key <key_value>" \
+        && check_if_arg_is_provided "$pathEncryptedKey" "-p/--path-encrypted-key <path>" \
+        || exit 1
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -148,13 +133,13 @@ main() {
     decrypt_private_ssh_key "$key" "$iv" "$pathEncryptedKey" "$sshFileName" \
         &> >(print_error_stream) \
         1> /dev/null
-    print_result $? 'Decrypt the file containing the private key' \
+    print_result $? "Decrypt the file containing the private key" \
         || exit 1
 
     add_ssh_configs "$sshFileName" \
         &> >(print_error_stream) \
         1> /dev/null
-    print_result $? 'Add configs to enable SSH authentication' \
+    print_result $? "Add configs to enable SSH authentication" \
         || exit 1
 
     return 0

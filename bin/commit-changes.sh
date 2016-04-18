@@ -22,7 +22,7 @@ commit_and_push_changes() {
     # Check if there are unstaged changes, and
     # if there are, commit and push them upstream
 
-    if [ "$(git status --porcelain)" != '' ]; then
+    if [ "$(git status --porcelain)" != "" ]; then
         git config --global user.email "$GH_USER_EMAIL" \
             && git config --global user.name "$GH_USER_NAME" \
             && git checkout --quiet "$1" \
@@ -61,11 +61,11 @@ EOF
 
 main() {
 
-    local branch=''
-    local commands=''
-    local commitMessage=''
+    local branch=""
+    local commands=""
+    local commitMessage=""
 
-    local allOptionsAreProvided='true'
+    local allOptionsAreProvided="true"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -83,7 +83,7 @@ main() {
                     shift 2
                     continue
                 else
-                    print_error 'ERROR: A non-empty "-b/--branch <branch_name>" argument needs to be specified'
+                    print_error "ERROR: A non-empty \"-b/--branch <branch_name>\" argument needs to be specified"
                     exit 1
                 fi
             ;;
@@ -94,7 +94,7 @@ main() {
                     shift 2
                     continue
                 else
-                    print_error 'ERROR: A non-empty "-c/--commands <commands>" argument needs to be specified'
+                    print_error "ERROR: A non-empty \"-c/--commands <commands>\" argument needs to be specified"
                     exit 1
                 fi
             ;;
@@ -106,12 +106,12 @@ main() {
                     continue
 
                 else
-                    print_error 'ERROR: A non-empty "-m/--commit-message <message>" argument needs to be specified'
+                    print_error "ERROR: A non-empty \"-m/--commit-message <message>\" argument needs to be specified"
                     exit 1
                 fi
             ;;
 
-           -?*) printf 'WARNING: Unknown option (ignored): %s\n' "$1" >&2;;
+           -?*) printf "WARNING: Unknown option (ignored): %s\n" "$1" >&2;;
              *) break
         esac
 
@@ -122,23 +122,10 @@ main() {
 
     # Check if all the required options are provided
 
-    if [ -z "$branch" ]; then
-        print_error 'ERROR: option "-b/--branch <branch_name>" not given (see --help)'
-        allOptionsAreProvided='false'
-    fi
-
-    if [ -z "$commands" ]; then
-        print_error 'ERROR: option "-c/--commands <commands>" not given (see --help).'
-        allOptionsAreProvided='false'
-    fi
-
-    if [ -z "$commitMessage" ]; then
-        print_error 'ERROR: option "-m/--commit-message <message>" not given (see --help).'
-        allOptionsAreProvided='false'
-    fi
-
-    [ "$allOptionsAreProvided" == 'false' ] \
-        && exit 1
+    check_if_arg_is_provided "$branch" "-b/--branch <branch_name>" \
+        && check_if_arg_is_provided "$commands" "-c/--commands <commands>" \
+        && check_if_arg_is_provided "$commitMessage" "-m/--commit-message <message>" \
+        || exit 1
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -151,13 +138,13 @@ main() {
         execute "$commands" \
             &> >(print_error_stream) \
             1> /dev/null
-        print_result $? 'Update content' \
+        print_result $? "Update content" \
             || exit 1
 
         commit_and_push_changes "$branch" "$commitMessage" \
             &> >(print_error_stream) \
             1> /dev/null
-        print_result $? 'Commit and push changes (if necessary)'
+        print_result $? "Commit and push changes (if necessary)"
 
     fi
 

@@ -10,7 +10,7 @@ after_script:
                       --commit-message "Update branch content [skip ci]" \
                       --directory "test/update-branch/fixtures/test_files" \
                       --distribution-branch "${TRAVIS_BRANCH}-dist" \
-                      --source-branch "$TRAVIS_BRANCH";
+                      --source-branch "$TRAVIS_BRANCH"
 
 env:
   global:

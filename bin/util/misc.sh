@@ -4,6 +4,15 @@ declare -r LOG_PREFIX="[travis-scripts → $(basename "$0")]"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+check_if_arg_is_provided() {
+
+    if [ -z "$1" ]; then
+        print_error "ERROR: option \"$2\" not given (see --help)."
+        return 1
+    fi
+
+}
+
 execute() {
     eval ${1}
 }
@@ -13,7 +22,7 @@ get_repository_url() {
 }
 
 print() {
-    printf '%b%s%b\n' \
+    printf "%b%s%b\n" \
         "$1" \
         "${2//$'\r'//}" \
         "\e[0m"
@@ -30,11 +39,11 @@ print_error_stream() {
 }
 
 print_in_green() {
-    print '\e[0;32m' "$1"
+    print "\e[0;32m" "$1"
 }
 
 print_in_red() {
-    print '\e[0;31m' "$1"
+    print "\e[0;31m" "$1"
 }
 
 print_result() {
@@ -51,7 +60,7 @@ print_success() {
 
 remove_sensitive_information() {
 
-    declare -r CENSOR_TEXT='[secure]';
+    declare -r CENSOR_TEXT="[secure]";
 
     while IFS="" read -r line; do
 
@@ -59,7 +68,7 @@ remove_sensitive_information() {
             line="${line//${text}/$CENSOR_TEXT}"
         done
 
-        printf '%s\n' "$line"
+        printf "%s\n" "$line"
 
     done
 

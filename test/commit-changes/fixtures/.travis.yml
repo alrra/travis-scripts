@@ -8,7 +8,7 @@ after_script:
       $(npm bin)/travis-after-all && \
         commit-changes --branch "$TRAVIS_BRANCH" \
                        --commands 'npm run -s print-test-text > test/commit-changes/fixtures/test_files/file.txt' \
-                       --commit-message "Update content [skip ci]";
+                       --commit-message "Update content [skip ci]"
 
 env:
   global:
