@@ -79,17 +79,35 @@ EOF
 
 remove_unneeded_files() {
 
-    # Remove unneeded files and move the content from
-    # within the specified directory in the root of the project
+    local tmpDir=""
 
-    local tmpDir="$(mktemp -u /tmp/XXXXX)"
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    [ -d "$1" ] \
+    # If a directory was not specified, move to the next steps
+
+    [ -z "$1" ] \
+        && return 0
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # If something other than a directory was specified, print an error
+
+    if [ ! -d "$1" ]; then
+        print_error "\"$1\" is not a directory"
+        return 1
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Otherwise, remove the unneeded files and move the content
+    # from within the specified directory in the root of the project
+
+    tmpDir="$(mktemp -u /tmp/XXXXX)" \
         && cp -r "$1" "$tmpDir" \
         && find . -delete \
         && shopt -s dotglob \
         && cp -r "$tmpDir"/* . \
-        && shopt -u dotglob \
+        && shopt -u dotglob
 
 }
 
@@ -184,7 +202,6 @@ main() {
     (
         check_if_arg_is_provided "$commands" "-c/--commands <commands>"
         check_if_arg_is_provided "$commitMessage" "-m/--commit-message <message>"
-        check_if_arg_is_provided "$directory" "-d/--directory <directory>"
         check_if_arg_is_provided "$distributionBranch" "--distribution-branch <branch_name>"
         check_if_arg_is_provided "$sourceBranch" "--source-branch <branch_name>"
     ) \

@@ -1,5 +1,6 @@
 ### HEAD
 
+* Make `update-branch.sh`'s `-d/--directory` option optional.
 * [[`197c1a78e7`](https://github.com/alrra/travis-scripts/commit/197c1a78e78306fd7ce735ecb989a0833a3b9700)] -
   Change `update-branch.sh` to allow `master` as the distribution branch
   (see also: [`#22`](https://github.com/alrra/travis-scripts/issues/22)).
