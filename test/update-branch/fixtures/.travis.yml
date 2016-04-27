@@ -6,7 +6,7 @@ after_script:
   - |
 
       $(npm bin)/travis-after-all && \
-        update-branch --commands 'npm run -s print-test-text > test/update-branch/fixtures/test_files/file.txt' \
+        update-branch --commands "npm run --silent print-test-text > test/update-branch/fixtures/test_files/file.txt" \
                       --commit-message "Update branch content [skip ci]" \
                       --directory "test/update-branch/fixtures/test_files" \
                       --distribution-branch "${TRAVIS_BRANCH}-dist" \
