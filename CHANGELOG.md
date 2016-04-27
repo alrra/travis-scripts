@@ -1,6 +1,10 @@
 ### HEAD
 
-* Make `update-branch.sh`'s `-d/--directory` option optional.
+* [[`5464e442c0`](https://github.com/alrra/travis-scripts/commit/5464e442c02e9bc54d2fa70c5bbf712ca42707ec)] -
+  Make `update-branch.sh`'s `-d/--directory` option optional.
+* [[`def34123a9`](https://github.com/alrra/travis-scripts/commit/def34123a988e8925ddaeff2428f5e9f83b65b06)] -
+  Make log output include name of script being executed.
+  (see also: [`comment#17144757`](https://github.com/alrra/travis-scripts/commit/def34123a988e8925ddaeff2428f5e9f83b65b06#commitcomment-17144757)).
 * [[`197c1a78e7`](https://github.com/alrra/travis-scripts/commit/197c1a78e78306fd7ce735ecb989a0833a3b9700)] -
   Change `update-branch.sh` to allow `master` as the distribution branch
   (see also: [`#22`](https://github.com/alrra/travis-scripts/issues/22)).
@@ -17,7 +21,7 @@
   Add `set-up-ssh` helper script
   (see also: [`#19`](https://github.com/alrra/travis-scripts/issues/19)).
 * [[`850318d739`](https://github.com/alrra/travis-scripts/commit/850318d7399b2813946e31bd9501489285284515)] -
-  Improve log output 
+  Improve log output
   (see also: [`a62dbcdacf`](https://github.com/alrra/travis-scripts/commit/a62dbcdacfc5ee39ce4077ed43b9a911760cc6b8)).
 * Make various documentation related improvements.
 
