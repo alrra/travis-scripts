@@ -122,9 +122,11 @@ main() {
 
     # Check if all the required options are provided
 
-    check_if_arg_is_provided "$branch" "-b/--branch <branch_name>" \
-        && check_if_arg_is_provided "$commands" "-c/--commands <commands>" \
-        && check_if_arg_is_provided "$commitMessage" "-m/--commit-message <message>" \
+    (
+        check_if_arg_is_provided "$branch" "-b/--branch <branch_name>"
+        check_if_arg_is_provided "$commands" "-c/--commands <commands>"
+        check_if_arg_is_provided "$commitMessage" "-m/--commit-message <message>"
+    ) \
         || exit 1
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

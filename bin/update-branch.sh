@@ -181,11 +181,13 @@ main() {
 
     # Check if all the required options are provided
 
-    check_if_arg_is_provided "$commands" "-c/--commands <commands>" \
-        && check_if_arg_is_provided "$commitMessage" "-m/--commit-message <message>" \
-        && check_if_arg_is_provided "$directory" "-d/--directory <directory>" \
-        && check_if_arg_is_provided "$distributionBranch" "--distribution-branch <branch_name>" \
-        && check_if_arg_is_provided "$sourceBranch" "--source-branch <branch_name>" \
+    (
+        check_if_arg_is_provided "$commands" "-c/--commands <commands>"
+        check_if_arg_is_provided "$commitMessage" "-m/--commit-message <message>"
+        check_if_arg_is_provided "$directory" "-d/--directory <directory>"
+        check_if_arg_is_provided "$distributionBranch" "--distribution-branch <branch_name>"
+        check_if_arg_is_provided "$sourceBranch" "--source-branch <branch_name>"
+    ) \
         || exit 1
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

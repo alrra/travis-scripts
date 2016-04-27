@@ -121,9 +121,11 @@ main() {
 
     # Check if all the required options are provided
 
-    check_if_arg_is_provided "$iv" "-i/--iv <iv_value>" \
-        && check_if_arg_is_provided "$key" "-k/--key <key_value>" \
-        && check_if_arg_is_provided "$pathEncryptedKey" "-p/--path-encrypted-key <path>" \
+    (
+        check_if_arg_is_provided "$iv" "-i/--iv <iv_value>"
+        check_if_arg_is_provided "$key" "-k/--key <key_value>"
+        check_if_arg_is_provided "$pathEncryptedKey" "-p/--path-encrypted-key <path>"
+    ) \
         || exit 1
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
