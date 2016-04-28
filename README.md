@@ -4,10 +4,10 @@
 [![devDependency Status](https://david-dm.org/alrra/travis-scripts/dev-status.svg)](https://david-dm.org/alrra/travis-scripts#info=devDependencies)
 
 
-## Usage
+## Documentation
 
 * [Install](doc/install.md)
-* [Allow access to the repository by setting up the SSH keys](doc/github-deploy-keys.md)
+* [Set up the SSH keys](doc/github-deploy-keys.md)
 * [Usage](doc/usage.md)
 * [Handle multiple jobs](doc/handle-multiple-jobs.md)
 
