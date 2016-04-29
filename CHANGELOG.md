@@ -1,4 +1,4 @@
-## HEAD
+## 3.0.0 (April 30, 2016)
 
 ##### Breaking changes
 
