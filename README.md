@@ -6,10 +6,10 @@
 
 ## Documentation
 
-* [Install](doc/install.md)
-* [Set up the SSH keys](doc/github-deploy-keys.md)
-* [Usage](doc/usage.md)
-* [Handle multiple jobs](doc/handle-multiple-jobs.md)
+* :package: [Install](doc/install.md)
+* :closed_lock_with_key: [Set up the SSH keys](doc/github-deploy-keys.md)
+* :repeat: [Usage](doc/usage.md)
+* :repeat_one: [Handle multiple jobs](doc/handle-multiple-jobs.md)
 
 
 ## License
