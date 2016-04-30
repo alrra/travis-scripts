@@ -50,5 +50,5 @@
     "print-test-text": "printf \"%s\" \"$npm_package_config_test_text\"",
     "test": "./test/main.sh"
   },
-  "version": "3.0.0"
+  "version": "3.0.1"
 }

@@ -1,8 +1,9 @@
-## HEAD
+## 3.0.1 (April 30, 2016)
 
 ##### Improvement
 
-* Update the list of files to be included by `npm`.
+* [[`a0e6f8317d`](https://github.com/alrra/travis-scripts/commit/a0e6f8317d2d686963ba6b85f65243df0673ac0a)] -
+  Update the list of files to be included by `npm`.
 
 
 ## 3.0.0 (April 30, 2016)
