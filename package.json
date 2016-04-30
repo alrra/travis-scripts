@@ -32,6 +32,10 @@
     "tap-mocha-reporter": "0.0.24",
     "travis-after-all": "^1.4.4"
   },
+  "files": [
+    "bin",
+    "doc"
+  ],
   "homepage": "https://github.com/alrra/travis-scripts#readme",
   "keywords": [
     "automation",

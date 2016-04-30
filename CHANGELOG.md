@@ -1,3 +1,10 @@
+## HEAD
+
+##### Improvement
+
+* Update the list of files to be included by `npm`.
+
+
 ## 3.0.0 (April 30, 2016)
 
 ##### Breaking changes
@@ -63,7 +70,7 @@
   Improve usage instructions from `README.md`.
 
 
-### 1.2.1 (January 19, 2016)
+## 1.2.1 (January 19, 2016)
 
 ##### Improvement
 
@@ -84,7 +91,7 @@
 
 ## 1.1.3 (January 10, 2016)
 
-##### Improvements
+##### Improvement
 
 * [[`44ac04d39`](https://github.com/alrra/travis-scripts/commit/44ac04d39b835e50c7ceb976b54512d688a97e45)] -
   Use `https://` where possible.
@@ -108,7 +115,7 @@
 
 ## 1.1.0 (September 18, 2015)
 
-##### Improvement
+##### New Feature
 
 * [[`dfa7d10049`](https://github.com/alrra/travis-scripts/commit/dfa7d10049ce63b87a33c2fbee93cbff62795a1c)] -
   Make scripts immediately stop if something failed.
