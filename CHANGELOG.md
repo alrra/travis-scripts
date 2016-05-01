@@ -1,3 +1,7 @@
+## HEAD
+
+* Clean up and improve the code.
+
 ## 3.0.1 (April 30, 2016)
 
 ##### Improvement

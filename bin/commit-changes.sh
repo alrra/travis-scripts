@@ -9,8 +9,8 @@ source "$(
     #   * `misc.sh` is not publicly exposed
     #
 
-    cd "$(dirname "$BASH_SOURCE")";
-    cd "$(dirname $(readlink "$BASH_SOURCE"))";
+    cd "$(dirname "${BASH_SOURCE[0]}")";
+    cd "$(dirname "$(readlink "${BASH_SOURCE[0]}")")";
     pwd
 
 )/util/misc.sh"
@@ -64,8 +64,6 @@ main() {
     local branch=""
     local commands=""
     local commitMessage=""
-
-    local allOptionsAreProvided="true"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

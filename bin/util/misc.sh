@@ -14,11 +14,11 @@ check_if_arg_is_provided() {
 }
 
 execute() {
-    eval ${1}
+    eval "${1}"
 }
 
 get_repository_url() {
-    printf "git@github.com:$TRAVIS_REPO_SLUG.git"
+    printf "%s" "git@github.com:$TRAVIS_REPO_SLUG.git"
 }
 
 print() {
@@ -47,11 +47,15 @@ print_in_red() {
 }
 
 print_result() {
-    [ $1 -eq 0 ] \
-        && print_success "$2" \
-        || print_error "$2"
 
-    return $1
+    if [ "$1" -eq 0 ]; then
+        print_success "$2"
+    else
+        print_error "$2"
+    fi
+
+    return "$1"
+
 }
 
 print_success() {

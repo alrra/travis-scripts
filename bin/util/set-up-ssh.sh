@@ -9,8 +9,8 @@ source "$(
     #   * `misc.sh` is not publicly exposed
     #
 
-    cd "$(dirname "$BASH_SOURCE")";
-    cd "$(dirname $(readlink "$BASH_SOURCE"))";
+    cd "$(dirname "${BASH_SOURCE[0]}")";
+    cd "$(dirname "$(readlink "${BASH_SOURCE[0]}")")";
     pwd
 
 )/misc.sh"
@@ -41,12 +41,12 @@ OPTIONS:
 
     -k, --key <key_value>
 
-        Specifies the value of the key stored in the `encrypted_XXXXXXXXXXXX_key` envirorment variable.
+        Specifies the value of the key stored in the "encrypted_XXXXXXXXXXXX_key" envirorment variable.
 
 
     -i, --iv <iv_value>
 
-        Specifies the value of the IV stored in the `encrypted_XXXXXXXXXXXX_iv` envirorment variable.
+        Specifies the value of the IV stored in the "encrypted_XXXXXXXXXXXX_iv" envirorment variable.
 
 
     -p, --path-encrypted-key <path>
@@ -130,7 +130,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    sshFileName="$(mktemp -u $HOME/.ssh/XXXXX)"
+    sshFileName="$(mktemp -u "$HOME/.ssh/XXXXX")"
 
     decrypt_private_ssh_key "$key" "$iv" "$pathEncryptedKey" "$sshFileName" \
         &> >(print_error_stream) \
