@@ -26,8 +26,8 @@
     "babel-polyfill": "^6.3.14",
     "babel-runtime": "^6.3.19",
     "js-yaml": "^3.6.0",
-    "tap": "^5.7.1",
-    "tap-mocha-reporter": "0.0.24",
+    "tap": "^6.1.1",
+    "tap-mocha-reporter": "0.0.25",
     "travis-after-all": "^1.4.4"
   },
   "files": [
