@@ -14,10 +14,10 @@ after_success:
     # Add the SSH-related commands here, see:
     # https://github.com/alrra/travis-scripts/blob/master/doc/github-deploy-keys.md#26-set-up-ssh-connection-for-travis-ci
 
-    $(npm bin)/update-branch --commands "npm run build"
-                             --commit-message "Hey GitHub, this content is for you! [skip ci]"
-                             --directory "dist"
-                             --distribution-branch "gh-pages"
+    $(npm bin)/update-branch --commands "npm run build" \
+                             --commit-message "Hey GitHub, this content is for you! [skip ci]" \
+                             --directory "dist" \
+                             --distribution-branch "gh-pages" \
                              --source-branch "master"
 ```
 

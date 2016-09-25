@@ -19,10 +19,10 @@ to be executed only once, and for that you will need to use
        # ...
 
        $(npm bin)/travis-after-all && \
-         $(npm bin)/update-branch --commands "npm run build"
-                                  --commit-message "Hey GitHub, this content is for you! [skip ci]"
-                                  --directory "build"
-                                  --distribution-branch "gh-pages"
+         $(npm bin)/update-branch --commands "npm run build" \
+                                  --commit-message "Hey GitHub, this content is for you! [skip ci]" \
+                                  --directory "build" \
+                                  --distribution-branch "gh-pages" \
                                   --source-branch "master"
   ```
 
