@@ -27,7 +27,7 @@
     "babel-runtime": "^6.11.6",
     "js-yaml": "^3.6.0",
     "tap": "^7.1.0",
-    "tap-mocha-reporter": "^2.0.1",
+    "tap-mocha-reporter": "^3.0.0",
     "travis-after-all": "^1.4.4"
   },
   "files": [
