@@ -32,7 +32,7 @@
   },
   "files": [
     "bin",
-    "doc"
+    "docs"
   ],
   "homepage": "https://github.com/alrra/travis-scripts#readme",
   "keywords": [

@@ -209,7 +209,7 @@ env:
     - secure: "<secure_key_value>"
 ```
 
---
+---
 
 <div align="center">
     <a href="install.md">← previous step</a> |

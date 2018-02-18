@@ -12,7 +12,7 @@ after_success:
 -|
 
     # Add the SSH-related commands here, see:
-    # https://github.com/alrra/travis-scripts/blob/master/doc/github-deploy-keys.md#26-set-up-ssh-connection-for-travis-ci
+    # https://github.com/alrra/travis-scripts/blob/master/docs/github-deploy-keys.md#26-set-up-ssh-connection-for-travis-ci
 
     $(npm bin)/update-branch --commands "npm run build" \
                              --commit-message "Hey GitHub, this content is for you! [skip ci]" \
@@ -21,7 +21,7 @@ after_success:
                              --source-branch "master"
 ```
 
---
+---
 
 <div align="center">
     <a href="github-deploy-keys.md">← previous step</a> |
