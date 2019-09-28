@@ -21,13 +21,13 @@
   "devDependencies": {
     "babel-cli": "^6.14.0",
     "babel-plugin-transform-async-to-generator": "^6.4.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-polyfill": "^6.13.0",
     "babel-runtime": "^6.11.6",
-    "js-yaml": "^3.6.0",
-    "tap": "^11.1.0",
-    "tap-mocha-reporter": "^3.0.0",
+    "js-yaml": "^3.13.1",
+    "tap": "^14.2.3",
+    "tap-mocha-reporter": "^4.0.1",
     "travis-after-all": "^1.4.4"
   },
   "files": [
